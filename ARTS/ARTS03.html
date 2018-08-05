@@ -403,8 +403,10 @@ height:50vh;
 <h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addStrings</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] numArray1 = num1.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] numArray2 = num2.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> currentNum1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> currentNum2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> i : numArray1) &#123;</span><br><span class="line">            currentNum1 = currentNum1 * <span class="number">10</span> + <span class="keyword">this</span>.codeToNum((<span class="keyword">byte</span>) i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> i : numArray2) &#123;</span><br><span class="line">            currentNum2 = currentNum2 * <span class="number">10</span> + <span class="keyword">this</span>.codeToNum((<span class="keyword">byte</span>) i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span> + (currentNum1 + currentNum2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">codeToNum</span><span class="params">(<span class="keyword">int</span> code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] strToNum = &#123;<span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>, <span class="number">55</span>, <span class="number">56</span>, <span class="number">57</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strToNum.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (code == strToNum[i]) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h1><p>分享文章：<a href="https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/thing_76/index.html" target="_blank" rel="noopener">The Single Responsibility Principle</a></p>
 <p>本文阐述了，一个良好的设计应该具备的一个基本原则：<strong>单一职责原则</strong></p>
-<pre><code>将因相同原因而改变的的功能聚集在一起，将因不同原因而改变的功能分开。
-</code></pre><p>确切的说，就是一个功能模块只做一件事，并且把它做好。这意味着可以将我们的系统分成可独立部署的组件，组件与组件之间的状态不会互相影响，如果有需要更改某个组件并不需要重新部署其他组件。</p>
+<blockquote>
+<p>将因相同原因而改变的的功能聚集在一起，将因不同原因而改变的功能分开。</p>
+</blockquote>
+<p>确切的说，就是一个功能模块只做一件事，并且把它做好。这意味着可以将我们的系统分成可独立部署的组件，组件与组件之间的状态不会互相影响，如果有需要更改某个组件并不需要重新部署其他组件。</p>
 <h1 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h1><h2 id="内网穿透的通俗理解"><a href="#内网穿透的通俗理解" class="headerlink" title="内网穿透的通俗理解"></a>内网穿透的通俗理解</h2><p>最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过查阅资料实现了相关功能，借此总结下自己对于内网穿透粗浅的理解。</p>
 <p>平日里我们访问的网站，背后都有服务器在支撑服务，而我们之所以能访问这台服务器是因为我们能在互联网中定位到他的IP地址。</p>
 <p>这个IP是运营商分配的<code>公网IP地址</code>，在网络中是独一无二的，但是这样的IP资源很宝贵，不能无节制的分配。</p>
@@ -435,11 +437,15 @@ height:50vh;
 <p>这是很可怕的，可怕在于父母必须要你顺从他们的意愿，他们还把你当作那个听话的小孩子。在可预见的将来，他们可不仅仅要干预你的择偶，很有可能还会干预你找工作、换工作、买房子，将来结婚的婚后生活他们很可能还要插一脚，指指点点。</p>
 <p>而你很可能在从前的生活中，从来没有真正的反抗过父母的意愿。</p>
 <p>这就是问题所在：</p>
-<pre><code>你一直是个听话的孩子，父母也习惯了你的听话，之后你长大了对待某个问题你有自己的看法（很明显你们某些观念上出现了分歧），但是父母反对，你会继续顺从？还是坚决和他们说一声：“我自己可以做主！”？
-</code></pre><p>而事实上已然我们已经长成了一个成年人，我们比父母那一代接受更好的教育，拥有顺应新时代发展的价值观念，我们有足够的信息去判断一个人是否能陪伴自己度过下半生。那么当真正找到这样一个人，又为何让父母用他们的陈旧观念把你束缚住呢？</p>
+<blockquote>
+<p>你一直是个听话的孩子，父母也习惯了你的听话，之后你长大了对待某个问题你有自己的看法（很明显你们某些观念上出现了分歧），但是父母反对，你会继续顺从？还是坚决和他们说一声：“我自己可以做主！”？</p>
+</blockquote>
+<p>而事实上已然我们已经长成了一个成年人，我们比父母那一代接受更好的教育，拥有顺应新时代发展的价值观念，我们有足够的信息去判断一个人是否能陪伴自己度过下半生。那么当真正找到这样一个人，又为何让父母用他们的陈旧观念把你束缚住呢？</p>
 <p>我的建议是和父母坦白：</p>
-<pre><code>我知道你们都是为我好，但是我不是以前的那个小孩子了，有些事情上，你们的意见和我出现了分歧，作为家人我会慎重考虑你们的建议。但我希望你们明白一件事，我有自己的想法我也相信自己的判断，不管怎样事情最后的觉定权都在我身上，你们不能陪我一辈子，我的人生还是我自己来掌控比较稳妥。
-</code></pre><p>当你真正和父母敞开心扉拿出诚意沟通时，我相信大多数情况是父母会真的觉得你长大了。比较好的情况是那个站队的问题你两边都得到了，但如果父母还是想干预，咋办？这时千万不要心软，因为你不亮出你的决心，不为自己人生选择权争取，那就还是证明你依旧是那个小孩子。</p>
+<blockquote>
+<p>我知道你们都是为我好，但是我不是以前的那个小孩子了，有些事情上，你们的意见和我出现了分歧，作为家人我会慎重考虑你们的建议。但我希望你们明白一件事，我有自己的想法我也相信自己的判断，不管怎样事情最后的觉定权都在我身上，你们不能陪我一辈子，我的人生还是我自己来掌控比较稳妥。</p>
+</blockquote>
+<p>当你真正和父母敞开心扉拿出诚意沟通时，我相信大多数情况是父母会真的觉得你长大了。比较好的情况是那个站队的问题你两边都得到了，但如果父母还是想干预，咋办？这时千万不要心软，因为你不亮出你的决心，不为自己人生选择权争取，那就还是证明你依旧是那个小孩子。</p>
 
     </article>
     <!-- license  -->
@@ -687,6 +693,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 9
@@ -699,20 +715,6 @@ top:50vh;
     
     
     
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/ARTS/ARTS03.html" >第3周ARTS</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
@@ -729,12 +731,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/机器学习/短文本分类构建词向量.html" >短文本分类之构建词向量</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/可视化/matplotlib简单上手.html" >matplotlib简单上手</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/可视化/matplotlib简单上手.html" >matplotlib简单上手</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/机器学习/短文本分类构建词向量.html" >短文本分类之构建词向量</a>
         </li>
     
     
@@ -766,6 +768,20 @@ top:50vh;
             <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/爬虫/scrapy启动多爬虫.html" >Scrapy实现动态调试和同时启动多个爬虫</a>
         </li>
     
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/ARTS/ARTS03.html" >第3周ARTS</a>
+        </li>
+    
     </div>
   </div>
         <div class="sidebar-panel-tags">
@@ -773,21 +789,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="ARTS"><span class="iconfont-archer">&#xe606;</span>ARTS</span>
     
-        <span class="sidebar-tag-name" data-tags="HTTPS"><span class="iconfont-archer">&#xe606;</span>HTTPS</span>
-    
-        <span class="sidebar-tag-name" data-tags="证书"><span class="iconfont-archer">&#xe606;</span>证书</span>
-    
-        <span class="sidebar-tag-name" data-tags="matplotlib"><span class="iconfont-archer">&#xe606;</span>matplotlib</span>
-    
         <span class="sidebar-tag-name" data-tags="Hive"><span class="iconfont-archer">&#xe606;</span>Hive</span>
     
         <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
     
+        <span class="sidebar-tag-name" data-tags="HTTPS"><span class="iconfont-archer">&#xe606;</span>HTTPS</span>
+    
+        <span class="sidebar-tag-name" data-tags="证书"><span class="iconfont-archer">&#xe606;</span>证书</span>
+    
+        <span class="sidebar-tag-name" data-tags="word2vec"><span class="iconfont-archer">&#xe606;</span>word2vec</span>
+    
+        <span class="sidebar-tag-name" data-tags="matplotlib"><span class="iconfont-archer">&#xe606;</span>matplotlib</span>
+    
         <span class="sidebar-tag-name" data-tags="Scrapy"><span class="iconfont-archer">&#xe606;</span>Scrapy</span>
     
         <span class="sidebar-tag-name" data-tags="Python3"><span class="iconfont-archer">&#xe606;</span>Python3</span>
-    
-        <span class="sidebar-tag-name" data-tags="word2vec"><span class="iconfont-archer">&#xe606;</span>word2vec</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -824,15 +840,15 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="ARTS"><span class="iconfont-archer">&#xe60a;</span>ARTS</span>
     
+        <span class="sidebar-category-name" data-categories="大数据"><span class="iconfont-archer">&#xe60a;</span>大数据</span>
+    
         <span class="sidebar-category-name" data-categories="WEB"><span class="iconfont-archer">&#xe60a;</span>WEB</span>
+    
+        <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
     
         <span class="sidebar-category-name" data-categories="可视化"><span class="iconfont-archer">&#xe60a;</span>可视化</span>
     
-        <span class="sidebar-category-name" data-categories="大数据"><span class="iconfont-archer">&#xe60a;</span>大数据</span>
-    
         <span class="sidebar-category-name" data-categories="爬虫"><span class="iconfont-archer">&#xe60a;</span>爬虫</span>
-    
-        <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
