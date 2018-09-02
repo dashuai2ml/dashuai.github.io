@@ -339,26 +339,37 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/大数据/Hive常用操作.html" >
+        <a class="abstract-title" href = "/WEB/HTTPS 环境搭建.html" >
             
-                <span>Hive常用操作</span>
+                <span>HTTPS 环境搭建</span>
         </a>
         <div class="abstract-content">
-            创建表简单的建表123456789create tablespec_table_from_textfile(  id bigint,  table_code string,  table_name string,  table_common string,  column_code string,  column_name string,  column_common string)
-从查询结果创建表1234create table table2as select phone_num,real_name,id_card,create_time from table1 where info...
+            申请证书
+登录阿里云管理控制台
+CA证书服务 -&gt; 购买证书
+选择 免费型DV SSL 品牌 Symantec
+购买 -&gt; 支付
+回到步骤2证书服务控制台
+补全域名信息
+等待审核成功
+
+下载证书
+登录证书服务控制台，找到到对应证书点击下载。
+得到两个证书文件：214448811130415.key、 214448811130415.pem
+在Nginx安装目录下创建一个文件夹将其放入，我这里是：123456[root@Guitar cert]# pwd/etc/nginx/cert[root@Guitar cert]# lltotal 8-rw-r--r-- 1 root r...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/03</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/01/16</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Hive">Hive</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "HTTPS">HTTPS</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SQL">SQL</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "证书">证书</a>
     
 </div>
             
@@ -366,6 +377,10 @@
     </article>
     
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2018/">&#60; PREV</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
+    </nav>
     
 </main>
             <!-- profile -->
