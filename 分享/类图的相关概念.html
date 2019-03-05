@@ -15,7 +15,7 @@
     <meta name="description" content="永远年轻">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Scrapy实现动态调试和同时启动多个爬虫 · Zhangxu&#39;s Blog</title>
+    <title>类图的相关概念 · Zhangxu&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >Zhangxu&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Scrapy实现动态调试和同时启动多个爬虫</a>
+                <a href="#" class="post-name">类图的相关概念</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Scrapy实现动态调试和同时启动多个爬虫
+            类图的相关概念
             <!-- 404 -->
             
         </h1>
@@ -261,20 +261,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Scrapy">Scrapy</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python3">Python3</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "UML">UML</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">440</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">865</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2017/12/15</span>
+                    <span class="post-intro-time">2018/10/18</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -398,35 +396,42 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="一般启动方式"><a href="#一般启动方式" class="headerlink" title="一般启动方式"></a>一般启动方式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl spider_name</span><br></pre></td></tr></table></figure>
-<p>命令行启动好处是灵活方便, 可以通过传递参数的形式控制爬虫的行为和输出。</p>
-<blockquote>
-<p>参见<a href="http://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/tutorial.html#id3" target="_blank" rel="noopener">官方文档</a></p>
-</blockquote>
-<p>比如你可以配置爬虫采集到数据的输出方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl dmoz -o items.json</span><br></pre></td></tr></table></figure></p>
-<p>但是它的缺点也很明显:</p>
+        <p>学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。</p>
+<p>我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构我们的项目。</p>
+<p>类图将类与类之间的关系氛围以下几种：</p>
 <ul>
-<li>原子性太强，不方便动态调试代码</li>
-<li>当需要启动多个爬虫时，不方便操作</li>
+<li>实现</li>
+<li>泛化</li>
+<li>聚合</li>
+<li>组合</li>
+<li>关联</li>
+<li>依赖</li>
 </ul>
-<h2 id="新的思路"><a href="#新的思路" class="headerlink" title="新的思路"></a>新的思路</h2><p>我们知道<code>Scrapy</code>是基于Twisted实现的爬虫框架, 因此我们可以通过引入<code>reactor</code>来启动我们的爬虫。</p>
-<p>为了方便理解，我把的项目结构展示出来：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── learn_scrapy</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── items.py</span><br><span class="line">│   ├── middlewares.py</span><br><span class="line">│   ├── pipelines.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   └── spiders</span><br><span class="line">│       ├── __init__.py</span><br><span class="line">│       └── test.py</span><br><span class="line">├── debug.py</span><br><span class="line">└── scrapy.cfg</span><br></pre></td></tr></table></figure>
-<p>我在项目根目录下新建了文件 <code>debug.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> reactor</span><br><span class="line"><span class="keyword">from</span> scrapy.crawler <span class="keyword">import</span> CrawlerRunner</span><br><span class="line"><span class="keyword">from</span> scrapy.utils.project <span class="keyword">import</span> get_project_settings</span><br><span class="line"><span class="keyword">from</span> scrapy.utils.log <span class="keyword">import</span> configure_logging</span><br><span class="line"><span class="comment"># 引入spider</span></span><br><span class="line"><span class="keyword">from</span> learn_scrapy.spiders.test <span class="keyword">import</span> TestSpider</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">settings = get_project_settings()</span><br><span class="line">configure_logging(settings)</span><br><span class="line">runner = CrawlerRunner(settings)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_spider</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 装载爬虫</span></span><br><span class="line">    runner.crawl(TestSpider)</span><br><span class="line">    <span class="comment"># 如果有多个爬虫需要启动可以一直装载下去</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider2)</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider3)</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider4)</span></span><br><span class="line">    <span class="comment"># ... ...</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 爬虫结束后停止事件循环</span></span><br><span class="line">    d = runner.join()</span><br><span class="line">    d.addBoth(<span class="keyword">lambda</span> _: reactor.stop())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 启动事件循环</span></span><br><span class="line">    reactor.run()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    start_spider()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<p>运行这个文件<code>python3 debug.py</code>就可以启动爬虫。</p>
-<h2 id="动态调试"><a href="#动态调试" class="headerlink" title="动态调试"></a>动态调试</h2><p>在IDE下选择启动debug：</p>
-<p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/debug_scrapy.png" alt=""></p>
-<p>可以看到程序停在了断点处，可以很方便的查看程序运行时的堆栈和变量信息：</p>
-<p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/debug_scrapy2.png" alt=""></p>
+<h2 id="实现-泛化"><a href="#实现-泛化" class="headerlink" title="实现 泛化"></a>实现 泛化</h2><p>我觉得可以将它们放在一起来看，因为它们都体现出类的一种继承结构，也即 is-a 的关系，举个例子：自行车是车、猫是动物</p>
+<p>那么在实际的代码中<strong>实现表示继承抽象类</strong>，符号是一条带空心箭头的虚线，箭头方向表示<strong>继承自</strong>，继承自谁就指向谁。</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_realize.jpg" alt="实现"></p>
+<p>泛化，从字面上理解就有推广开来的意味，在实际代码中是继承自非抽象类，符号是带空心箭头的实线。</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalize.jpg" alt="泛化"></p>
+<h2 id="聚合-组合"><a href="#聚合-组合" class="headerlink" title="聚合 组合"></a>聚合 组合</h2><p>其实组合是一种特殊的聚合，区别聚合与组合原则在于：整体不存在时部分是否还存在？</p>
+<p>如果整体不存在时部分还存在，那就是聚合它的整体和部分不是强依赖的，比如羊群解散了羊作为一个独立的个体仍然是存在的，聚合关系用一条带空心菱形箭头的直线表示，如下图表示A聚合到B上，或者说B由A聚合：</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_aggregation.jpg" alt="聚合"></p>
+<p>反之如果整体不存在时部分也不存在了，那就是组合它是一种强依赖的特殊聚合关系，例如：公司不存在了，部门也将不存在了，组合关系用一条带实心菱形箭头直线表示，如下图表示A组成B，或者B由A组成；</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_composition.jpg" alt="组合"></p>
+<h2 id="依赖-关联"><a href="#依赖-关联" class="headerlink" title="依赖 关联"></a>依赖 关联</h2><p>一个对象A在运行期间会用到另一个对象B我们就称作A依赖B，他们之间的关系就是依赖关系。</p>
+<p>显然关联关系也是依赖关系的一种，区别在于关联关系是一种静态关系， 通常与运行状态无关，一般由常识等因素决定的，它一般用来定义对象之间静态的、天然的结构。所以，关联关系是一种“强依赖”的关系；比如学生和学校就是一种关联关系。关联关系是用一条直线表示的默认不强调方向，表示对象间相互知道；如果特别强调方向，如下图，表示A知道B，但 B不知道A：</p>
+<p>关联关系在最终代码中，通常是以成员变量的形式实现的。</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_association.jpg" alt="关联"></p>
+<p>而依赖它是一种临时性的关系，通常在运行期间产生，并且随着运行时的变化，依赖关系也可能发生变化。因此在最终代码中，依赖关系体现为类构造方法及类方法的传入参数，因为参数是可以在运行时动态变化的。依赖关系是用一套带箭头的虚线表示的如下图表示A依赖于B：</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_dependency.jpg" alt="依赖"></p>
+<p>由此可见，上面的组合和聚合也是一种依赖，而且是强依赖关系–关联关系。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者: <a href="http://jshpy.cn">张旭</a>
-            <p>原文链接: <a href="http://jshpy.cn/爬虫/scrapy启动多爬虫.html">http://jshpy.cn/爬虫/scrapy启动多爬虫.html</a>
-            <p>发表日期: <a href="http://jshpy.cn/爬虫/scrapy启动多爬虫.html">十二月 15日 2017, 12:00:00 凌晨</a>
+            <p>原文链接: <a href="http://jshpy.cn/分享/类图的相关概念.html">http://jshpy.cn/分享/类图的相关概念.html</a>
+            <p>发表日期: <a href="http://jshpy.cn/分享/类图的相关概念.html">十月 18日 2018, 12:00:00 凌晨</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -435,12 +440,17 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/爬虫/scrapy实用技巧.html" title= Scrapy实用技巧 >
-                    <div class="nextTitle">Scrapy实用技巧</div>
+                <a href= "/WEB/用Python搭建简单的HTTP服务.html" title= 用Python搭建简单的HTTP服务 >
+                    <div class="nextTitle">用Python搭建简单的HTTP服务</div>
                 </a>
             
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/Java/Spring Boot的一些注解.html" title= Spring Boot的一些注解 >
+                    <div class="prevTitle">Spring Boot的一些注解</div>
+                </a>
             
         </li>
     </ul>
@@ -570,7 +580,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一般启动方式"><span class="toc-number">1.</span> <span class="toc-text">一般启动方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新的思路"><span class="toc-number">2.</span> <span class="toc-text">新的思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态调试"><span class="toc-number">3.</span> <span class="toc-text">动态调试</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-泛化"><span class="toc-number">1.</span> <span class="toc-text">实现 泛化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#聚合-组合"><span class="toc-number">2.</span> <span class="toc-text">聚合 组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#依赖-关联"><span class="toc-number">3.</span> <span class="toc-text">依赖 关联</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

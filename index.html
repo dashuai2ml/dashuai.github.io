@@ -354,35 +354,29 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS07.html" >
+        <a class="abstract-title" href = "/Java/用Maven导入本地的jar包.html" >
             
-                <span>第7周ARTS-用Maven导入本地的jar包</span>
+                <span>用Maven导入本地的jar包</span>
         </a>
         <div class="abstract-content">
-            
-A: 判断 4 的幂次方R: The Boy Scout RuleT: 用Maven导入本地的jar包S: 爱在日落黄昏后观后感    
+            做个笔记：用Maven导入本地的jar包。
+搜索到好多种解决方案，这里我选择在项目目录下建立本地仓库的做法，这样jar包可以随项目很方便的移动。
+方法
+首先进入项目根目录（pom.xml的路径），建立一个文件夹，我这里是maven-repository。
 
-Algorithm题目给定一个整数 (32 位有符号整数)，请编写一个函数来判断它是否是 4 的幂次方。
-示例 1:
-输入: 16
-输出: true
-示例 2:
-输入: 5
-输出: false
-进阶：你能不使用循环或者递归来完成本题吗？
-思路找到二进制位的规律很方便的通过位运算求解
-答案12345class Solution &#123;    public boolean isPowerOfFour(int num) &#123;        ...
+使用Maven命令安装Jar到这个本地仓库中
+
+
+1mvn deploy:deploy-file -Dfile=&lt;path-to-file&gt; -DgroupId=&lt;group-id&gt; -DartifactId=&lt;artifact-id&gt; -Dversion=&lt;version&gt; -Dpac...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/02</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Maven">Maven</a>
     
@@ -397,30 +391,29 @@ Algorithm题目给定一个整数 (32 位有符号整数)，请编写一个函�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS06.html" >
+        <a class="abstract-title" href = "/WEB/用Python搭建简单的HTTP服务.html" >
             
-                <span>第6周ARTS-用Python搭建简单的HTTP服务</span>
+                <span>用Python搭建简单的HTTP服务</span>
         </a>
         <div class="abstract-content">
-            
-A: 实现 strStr() 函数R: Do Lots of Deliberate PracticeT: 用Python搭建简单的HTTP服务S: 关于滴滴产品的思考    
+            分享一个快速用Python搭建简单的HTTP服务的方法。
+平时我们可能有需要，传输某个文件到手机，或者工作中某台服务器的电脑。
+假如这个手机是个测试手机/服务器，并没有微信QQ之类的软件，而且你也不想费时去安装及登陆账号，而这个这个时候恰好你的电脑有Python环境，事情一下就简单了许多：
 
-Algorithm题目实现 strStr() 函数。
-给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
-示例 1:
-输入: haystack = “hello”, needle = “ll”输出: 2示例 2:
-输入: haystack = “aaaaa”, needle = “b...
+第一步 打开终端窗口，cd至你想要传输文件的目录。
+第二步 Python3环境，输入python -m http.server 8080；Python2环境，输入python -m SimpleHTTPServer 8080；
+
+看到如下字样说明服务开启成功：
+1Serving HTTP on 0....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/21</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "HTTP">HTTP</a>
     
@@ -437,41 +430,35 @@ Algorithm题目实现 strStr() 函数。
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS05.html" >
+        <a class="abstract-title" href = "/分享/类图的相关概念.html" >
             
-                <span>第5周ARTS-类图的相关概念</span>
+                <span>类图的相关概念</span>
         </a>
         <div class="abstract-content">
-            
-A: 字符找不同R: Deploy Early and OftenT: 类图的相关概念S: 科学的认知态度    
+            学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。
+我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构我们的项目。
+类图将类与类之间的关系氛围以下几种：
 
-Algorithm题目给定两个字符串 s 和 t，它们只包含小写字母。
-字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。
-请找出在 t 中被添加的字母。
-示例:
-输入：
-s = &quot;abcd&quot;
-t = &quot;abcde&quot;
+实现
+泛化
+聚合
+组合
+关联
+依赖
 
-输出：
-e
-
-解释：
-&apos;e&apos; 是那个被添加的字母。
-答案1234567891011class Solution &#123;    public char findTheDiffe...
+实现 泛化我觉得可以将它们放在一起来看，因为它们都体现出类的一种继承结构，也即 is-a 的关系，举个例子：自行车是车、猫是动物
+那么在实际的代码中实现表示继承抽象类，符号是一条带空心箭头的虚线，箭头方向表示继承自，继承自谁就指...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/19</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "类图">类图</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "UML">UML</a>
     
 </div>
             
@@ -484,149 +471,26 @@ e
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS04.html" >
+        <a class="abstract-title" href = "/Java/Spring Boot的一些注解.html" >
             
-                <span>第4周ARTS-Spring Boot的一些注解</span>
+                <span>Spring Boot的一些注解</span>
         </a>
         <div class="abstract-content">
-            
-A: 制定数字数组索引范围求和R: The Golden Rule of API DesignT: Spring Boot的一些注解S: 如何避免被洗脑    
-
-Algorithm给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
-示例：
-给定 nums = [-2, 0, 3, -5, 2, -1]，求和函数为 sumRange()
-sumRange(0, 2) -&gt; 1sumRange(2, 5) -&gt; -1sumRange(0, 5) -&gt; -3说明:
-你可以假设数组不可变。会多次调用 sum...
+            总结下SpringBoot的一些注解
+mybatis依赖
+12345&lt;dependency&gt;    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;    &lt;version&gt;1.3.1&lt;/version&gt;&lt;/dependency&gt;
+项目启动 Application 上的注解，配置 mybatis 的扫描路径1@MapperScan(basePack...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/10</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/13</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Spring Boot">Spring Boot</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS03.html" >
-            
-                <span>第3周ARTS-内网穿透的通俗理解</span>
-        </a>
-        <div class="abstract-content">
-            
-A: 数字字符串求和R: The Single Responsibility PrincipleT: 内网穿透的通俗理解S: 正在恋爱的对象遭到父母反对，应该怎么办？    
-
-Algorithm题目给定两个字符串形式的非负整数 num1 和 num2 ，计算它们的和。
-注意：
-num1 和 num2 的长度都小于 5100.num1 和 num2 都只包含数字 0-9.num1 和 num2 都不包含任何前导零。你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式。
-思路将0到9字符的 ASCII 码按顺序存放到一个数组中，那么相应的 ASCII码值...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "内网穿透">内网穿透</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS02.html" >
-            
-                <span>第2周ARTS-Tensorflow简单认识</span>
-        </a>
-        <div class="abstract-content">
-            
-A: 给定一个字符串，找出不含有重复字符的最长子串的长度R: The history of Character EncodingT: tensorflow简单认识S: 一些反思    
-
-Algorithm题目：给定一个字符串，找出不含有重复字符的最长子串的长度。
-示例：
-给定 &quot;abcabcbb&quot; ，没有重复字符的最长子串是 &quot;abc&quot; ，那么长度就是3。
-给定 &quot;bbbbb&quot; ，最长的子串就是 &quot;b&quot; ，长度是1。
-给定 &quot;pwwkew&quot; ，最长子串是 &quot;wke&quot;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Tensorflow">Tensorflow</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/ARTS/ARTS01.html" >
-            
-                <span>第1周ARTS-使用命令行式的MYSQL客户端</span>
-        </a>
-        <div class="abstract-content">
-            
-A: 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数R: The Key To Accelerating Your Coding SkillsT: 使用命令行式的MYSQL客户端S: 什么叫会工作    
-
-写在前面最近参加陈皓老师的专栏活动，每周一篇ARTS，即：
-
-algorithm -&gt; 一个算法题
-review -&gt; 点评一篇英文技术文章
-tip -&gt; 学习一个技术技巧
-share -&gt; 分享一个有观点和思考的文章
-
-Algorithm说来惭愧，我没有系统的学习过算法知识，第一周先来个简单的题尝尝，后面再接再厉。
-题目：给定一个整数数组和一...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ARTS">ARTS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "MYSQL">MYSQL</a>
     
 </div>
             
@@ -701,6 +565,113 @@ gensim
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "word2vec">word2vec</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/分享/内网穿透的通俗理解.html" >
+            
+                <span>内网穿透的通俗理解</span>
+        </a>
+        <div class="abstract-content">
+            Tip内网穿透的通俗理解最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过查阅资料实现了相关功能，借此总结下自己对于内网穿透粗浅的理解。
+平日里我们访问的网站，背后都有服务器在支撑服务，而我们之所以能访问这台服务器是因为我们能在互联网中定位到他的IP地址。
+这个IP是运营商分配的公网IP地址，在网络中是独一无二的，但是这样的IP资源很宝贵，不能无节制的分配。
+但是很多机器都需要联网，怎么办？
+回想下家里联网的场景，路由器通过拨号向运营商申请到了一个公网IP地址（下一次拨号还会变化），家里所有联网设备都通过这个IP地址和互联网上的其他设备通信。
+与此同时路...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "内网穿透">内网穿透</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/机器学习/Tensorflow简单认识.html" >
+            
+                <span>Tensorflow简单认识</span>
+        </a>
+        <div class="abstract-content">
+            这两天看了些tensorflow的知识点，这里分享一点心得。
+最直观的感受，和以往编程最大的不同是，数据不是实时操控的。
+编码的过程实际上是在用程序构造一个计算图，这个计算图定义了处理数据、模型创建、训练、验证、测试等等一系列行为。
+这个计算图有一个入口，就是我们的数据集，当我们把数据喂到这个图中，一切就按照我们预先等一好的那样运转起来，直至最后给出结果。
+用一个图来直观感受下：
+
+那也就是说，我们在定义图的过程中，用到的基础的数据结构它并不是“真实”的，更像是一个约定，等到数据经过这真实的计算才会发生。
+来看一个简单的例子：
+123456a = tf.constant(3.0, dty...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Tensorflow">Tensorflow</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/工具/命令行式的MYSQL客户端.html" >
+            
+                <span>使用命令行式的MYSQL客户端</span>
+        </a>
+        <div class="abstract-content">
+            最近需要连接到某个数据库，但是由于防护墙限制只能从一个特定的主机上连接，而这个主机是无UI界面的Linux系统。
+那么有没有一款命令行式的MYSQL客户端呢？有的，我找到了mycli，它有直观的语法突出显示，你可以用它方便的操作自己的数据库。
+如果恰好有Python的环境，可以用以下指令轻松安装：
+1$ pip install mycli
+或者下载源码后:
+1$ python setup.py install
+其他的平台：
+12$ brew update &amp;&amp; brew install mycli  # macOS$ sudo apt-get install my...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "MYSQL">MYSQL</a>
     
 </div>
             
@@ -1084,6 +1055,12 @@ gensim
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 13
@@ -1097,32 +1074,36 @@ gensim
     
     
     
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/Java/用Maven导入本地的jar包.html" >用Maven导入本地的jar包</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/ARTS/ARTS07.html" >第7周ARTS-用Maven导入本地的jar包</a>
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/WEB/用Python搭建简单的HTTP服务.html" >用Python搭建简单的HTTP服务</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/26</span><a class="archive-post-title" href= "/ARTS/ARTS06.html" >第6周ARTS-用Python搭建简单的HTTP服务</a>
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/分享/类图的相关概念.html" >类图的相关概念</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/ARTS/ARTS05.html" >第5周ARTS-类图的相关概念</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/ARTS/ARTS02.html" >第2周ARTS-Tensorflow简单认识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/21</span><a class="archive-post-title" href= "/ARTS/ARTS01.html" >第1周ARTS-使用命令行式的MYSQL客户端</a>
+            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/Java/Spring Boot的一些注解.html" >Spring Boot的一些注解</a>
         </li>
     
     
@@ -1133,6 +1114,21 @@ gensim
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/可视化/matplotlib简单上手.html" >matplotlib简单上手</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/分享/内网穿透的通俗理解.html" >内网穿透的通俗理解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/20</span><a class="archive-post-title" href= "/机器学习/Tensorflow简单认识.html" >Tensorflow简单认识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href= "/工具/命令行式的MYSQL客户端.html" >使用命令行式的MYSQL客户端</a>
         </li>
     
     
@@ -1164,60 +1160,10 @@ gensim
             <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/爬虫/scrapy启动多爬虫.html" >Scrapy实现动态调试和同时启动多个爬虫</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/ARTS/ARTS03.html" >第3周ARTS-内网穿透的通俗理解</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/ARTS/ARTS04.html" >第4周ARTS-Spring Boot的一些注解</a>
-        </li>
-    
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
-    
-        <span class="sidebar-tag-name" data-tags="ARTS"><span class="iconfont-archer">&#xe606;</span>ARTS</span>
-    
-        <span class="sidebar-tag-name" data-tags="MYSQL"><span class="iconfont-archer">&#xe606;</span>MYSQL</span>
-    
-        <span class="sidebar-tag-name" data-tags="Tensorflow"><span class="iconfont-archer">&#xe606;</span>Tensorflow</span>
-    
-        <span class="sidebar-tag-name" data-tags="内网穿透"><span class="iconfont-archer">&#xe606;</span>内网穿透</span>
-    
-        <span class="sidebar-tag-name" data-tags="Spring Boot"><span class="iconfont-archer">&#xe606;</span>Spring Boot</span>
-    
-        <span class="sidebar-tag-name" data-tags="类图"><span class="iconfont-archer">&#xe606;</span>类图</span>
-    
-        <span class="sidebar-tag-name" data-tags="HTTP"><span class="iconfont-archer">&#xe606;</span>HTTP</span>
-    
-        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
-    
-        <span class="sidebar-tag-name" data-tags="Maven"><span class="iconfont-archer">&#xe606;</span>Maven</span>
-    
-        <span class="sidebar-tag-name" data-tags="Scrapy"><span class="iconfont-archer">&#xe606;</span>Scrapy</span>
-    
-        <span class="sidebar-tag-name" data-tags="Python3"><span class="iconfont-archer">&#xe606;</span>Python3</span>
     
         <span class="sidebar-tag-name" data-tags="HTTPS"><span class="iconfont-archer">&#xe606;</span>HTTPS</span>
     
@@ -1227,9 +1173,29 @@ gensim
     
         <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
     
+        <span class="sidebar-tag-name" data-tags="Tensorflow"><span class="iconfont-archer">&#xe606;</span>Tensorflow</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spring Boot"><span class="iconfont-archer">&#xe606;</span>Spring Boot</span>
+    
         <span class="sidebar-tag-name" data-tags="matplotlib"><span class="iconfont-archer">&#xe606;</span>matplotlib</span>
     
+        <span class="sidebar-tag-name" data-tags="Scrapy"><span class="iconfont-archer">&#xe606;</span>Scrapy</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python3"><span class="iconfont-archer">&#xe606;</span>Python3</span>
+    
+        <span class="sidebar-tag-name" data-tags="内网穿透"><span class="iconfont-archer">&#xe606;</span>内网穿透</span>
+    
+        <span class="sidebar-tag-name" data-tags="MYSQL"><span class="iconfont-archer">&#xe606;</span>MYSQL</span>
+    
+        <span class="sidebar-tag-name" data-tags="Maven"><span class="iconfont-archer">&#xe606;</span>Maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="HTTP"><span class="iconfont-archer">&#xe606;</span>HTTP</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
         <span class="sidebar-tag-name" data-tags="word2vec"><span class="iconfont-archer">&#xe606;</span>word2vec</span>
+    
+        <span class="sidebar-tag-name" data-tags="UML"><span class="iconfont-archer">&#xe606;</span>UML</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1264,17 +1230,21 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="ARTS"><span class="iconfont-archer">&#xe60a;</span>ARTS</span>
-    
-        <span class="sidebar-category-name" data-categories="爬虫"><span class="iconfont-archer">&#xe60a;</span>爬虫</span>
-    
         <span class="sidebar-category-name" data-categories="WEB"><span class="iconfont-archer">&#xe60a;</span>WEB</span>
     
         <span class="sidebar-category-name" data-categories="大数据"><span class="iconfont-archer">&#xe60a;</span>大数据</span>
     
+        <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
+    
+        <span class="sidebar-category-name" data-categories="Java"><span class="iconfont-archer">&#xe60a;</span>Java</span>
+    
         <span class="sidebar-category-name" data-categories="可视化"><span class="iconfont-archer">&#xe60a;</span>可视化</span>
     
-        <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
+        <span class="sidebar-category-name" data-categories="爬虫"><span class="iconfont-archer">&#xe60a;</span>爬虫</span>
+    
+        <span class="sidebar-category-name" data-categories="分享"><span class="iconfont-archer">&#xe60a;</span>分享</span>
+    
+        <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
