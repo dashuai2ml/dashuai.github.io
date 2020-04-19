@@ -5,9 +5,9 @@
   <subtitle>HZX</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jshpy.cn/"/>
-  <updated>2019-03-06T13:33:42.513Z</updated>
-  <id>http://jshpy.cn/</id>
+  <link href="http://blog.jshpy.cn/"/>
+  <updated>2020-04-19T13:59:05.687Z</updated>
+  <id>http://blog.jshpy.cn/</id>
   
   <author>
     <name>张旭</name>
@@ -17,9 +17,115 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用Python搭建简单的HTTP服务</title>
+    <link href="http://blog.jshpy.cn/%E5%88%86%E4%BA%AB/%E7%94%A8Python%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84HTTP%E6%9C%8D%E5%8A%A1.html"/>
+    <id>http://blog.jshpy.cn/分享/用Python搭建简单的HTTP服务.html</id>
+    <published>2019-12-20T16:00:00.000Z</published>
+    <updated>2020-04-19T13:59:05.687Z</updated>
+    
+    <content type="html"><![CDATA[<p>分享一个快速用Python搭建简单的HTTP服务的方法。</p><p>平时我们可能有需要，传输某个文件到手机，或者工作中某台服务器的电脑。</p><p>假如这个手机是个测试手机/服务器，并没有微信QQ之类的软件，而且你也不想费时去安装及登陆账号，而这个这个时候恰好你的电脑有Python环境，事情一下就简单了许多：</p><ul><li>第一步 打开终端窗口，cd至你想要传输文件的目录。</li><li>第二步 Python3环境，输入<code>python -m http.server 8080</code>；Python2环境，输入<code>python -m SimpleHTTPServer 8080</code>；</li></ul><p>看到如下字样说明服务开启成功：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Serving HTTP on <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span> port <span class="number">8080</span> (http:<span class="comment">//0.0.0.0:8080/) ...</span></span><br></pre></td></tr></table></figure><p>此时用手机或其他电脑浏览器访问本机的IP和端口号即可下载此目录下的相关文件：</p><p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/1535288756699.jpg" alt="pic"></p><p>当然手机和电脑要和本机处在同一个本地网络中。</p><p>如果想让外网设备也可以访问，做个内网穿透就可以很方便的实现啦。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;分享一个快速用Python搭建简单的HTTP服务的方法。&lt;/p&gt;
+&lt;p&gt;平时我们可能有需要，传输某个文件到手机，或者工作中某台服务器的电脑。&lt;/p&gt;
+&lt;p&gt;假如这个手机是个测试手机/服务器，并没有微信QQ之类的软件，而且你也不想费时去安装及登陆账号，而这个这个时候恰好你的电
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="HTTP" scheme="http://blog.jshpy.cn/tags/HTTP/"/>
+    
+      <category term="Python" scheme="http://blog.jshpy.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>类图的相关概念</title>
+    <link href="http://blog.jshpy.cn/%E5%88%86%E4%BA%AB/%E7%B1%BB%E5%9B%BE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5.html"/>
+    <id>http://blog.jshpy.cn/分享/类图的相关概念.html</id>
+    <published>2019-10-17T16:00:00.000Z</published>
+    <updated>2020-04-19T13:58:53.042Z</updated>
+    
+    <content type="html"><![CDATA[<p>学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。</p><p>我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构我们的项目。</p><p>类图将类与类之间的关系氛围以下几种：</p><ul><li>实现</li><li>泛化</li><li>聚合</li><li>组合</li><li>关联</li><li>依赖</li></ul><h2 id="实现-泛化"><a href="#实现-泛化" class="headerlink" title="实现 泛化"></a>实现 泛化</h2><p>我觉得可以将它们放在一起来看，因为它们都体现出类的一种继承结构，也即 is-a 的关系，举个例子：自行车是车、猫是动物</p><p>那么在实际的代码中<strong>实现表示继承抽象类</strong>，符号是一条带空心箭头的虚线，箭头方向表示<strong>继承自</strong>，继承自谁就指向谁。</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_realize.jpg" alt="实现"></p><p>泛化，从字面上理解就有推广开来的意味，在实际代码中是继承自非抽象类，符号是带空心箭头的实线。</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalize.jpg" alt="泛化"></p><h2 id="聚合-组合"><a href="#聚合-组合" class="headerlink" title="聚合 组合"></a>聚合 组合</h2><p>其实组合是一种特殊的聚合，区别聚合与组合原则在于：整体不存在时部分是否还存在？</p><p>如果整体不存在时部分还存在，那就是聚合它的整体和部分不是强依赖的，比如羊群解散了羊作为一个独立的个体仍然是存在的，聚合关系用一条带空心菱形箭头的直线表示，如下图表示A聚合到B上，或者说B由A聚合：</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_aggregation.jpg" alt="聚合"></p><p>反之如果整体不存在时部分也不存在了，那就是组合它是一种强依赖的特殊聚合关系，例如：公司不存在了，部门也将不存在了，组合关系用一条带实心菱形箭头直线表示，如下图表示A组成B，或者B由A组成；</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_composition.jpg" alt="组合"></p><h2 id="依赖-关联"><a href="#依赖-关联" class="headerlink" title="依赖 关联"></a>依赖 关联</h2><p>一个对象A在运行期间会用到另一个对象B我们就称作A依赖B，他们之间的关系就是依赖关系。</p><p>显然关联关系也是依赖关系的一种，区别在于关联关系是一种静态关系， 通常与运行状态无关，一般由常识等因素决定的，它一般用来定义对象之间静态的、天然的结构。所以，关联关系是一种“强依赖”的关系；比如学生和学校就是一种关联关系。关联关系是用一条直线表示的默认不强调方向，表示对象间相互知道；如果特别强调方向，如下图，表示A知道B，但 B不知道A：</p><p>关联关系在最终代码中，通常是以成员变量的形式实现的。</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_association.jpg" alt="关联"></p><p>而依赖它是一种临时性的关系，通常在运行期间产生，并且随着运行时的变化，依赖关系也可能发生变化。因此在最终代码中，依赖关系体现为类构造方法及类方法的传入参数，因为参数是可以在运行时动态变化的。依赖关系是用一套带箭头的虚线表示的如下图表示A依赖于B：</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_dependency.jpg" alt="依赖"></p><p>由此可见，上面的组合和聚合也是一种依赖，而且是强依赖关系–关联关系。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。&lt;/p&gt;
+&lt;p&gt;我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="UML" scheme="http://blog.jshpy.cn/tags/UML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内网穿透的通俗理解</title>
+    <link href="http://blog.jshpy.cn/%E5%88%86%E4%BA%AB/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%9A%84%E9%80%9A%E4%BF%97%E7%90%86%E8%A7%A3.html"/>
+    <id>http://blog.jshpy.cn/分享/内网穿透的通俗理解.html</id>
+    <published>2019-06-14T16:00:00.000Z</published>
+    <updated>2020-04-19T13:59:00.116Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="内网穿透的通俗理解"><a href="#内网穿透的通俗理解" class="headerlink" title="内网穿透的通俗理解"></a>内网穿透的通俗理解</h2><p>最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过查阅资料实现了相关功能，借此总结下自己对于内网穿透粗浅的理解。</p><p>平日里我们访问的网站，背后都有服务器在支撑服务，而我们之所以能访问这台服务器是因为我们能在互联网中定位到他的IP地址。</p><p>这个IP是运营商分配的<code>公网IP地址</code>，在网络中是独一无二的，但是这样的IP资源很宝贵，不能无节制的分配。</p><p>但是很多机器都需要联网，怎么办？</p><p>回想下家里联网的场景，路由器通过拨号向运营商申请到了一个<code>公网IP地址</code>（下一次拨号还会变化），家里所有联网设备都通过这个IP地址和互联网上的其他设备通信。</p><p>与此同时路由器把自己与家中其他通过有线或无限的连接到路由器的设备组成了一个局域网，在这个局域网中每个设备都有一个自己的<code>私有IP地址</code>。</p><p>路由器在这个局域网中的扮演的是网关的角色，其他设备网络请求和接受的流量都由路由器转发，因此路由器像是家里水网的总闸门，对于外部网络设备而言家里的局域网是个黑盒子，只有<code>公网IP地址</code>是可见的。</p><p>对于网站服务器来说本机IP就是<code>公网IP地址</code>，那么我开个服务，告诉别人IP地址和端口号人家就可以访问了。</p><p>但对于家里的电脑就不一样了，别人不可能通过这个<code>私有IP地址</code>访问你发布的服务，因为它在网络中并不惟一，很可能隔壁二毛家的电脑IP和你的一样。</p><p>那如果非要别人访问怎么办，有没有解决方案？</p><p>有，方案之一是借助一个拥有<code>公网IP地址</code>的服务器来做转发工作，提供这种转发服务（内网穿透技术）的有花生壳、ngrok等等，他们通常是有一整套客户端和服务端通信的系统。服务端安装在用来转发的服务器上，与内网你家电脑的客户端通过约定的协议通信，这样别人想要访问你电脑的服务只要固定的找这个转发服务器就可以了，IP也是固定不变的。</p><p>转发服务器通常会分配一个二级或三级域名给到你，这个域名是和你的客户端绑定的，这样你打开电脑上的客户端后，别人就可以通过这个域名将其解析至转发服务器，而后转发服务器再找到你的客户端最终完成内网的穿透。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;内网穿透的通俗理解&quot;&gt;&lt;a href=&quot;#内网穿透的通俗理解&quot; class=&quot;headerlink&quot; title=&quot;内网穿透的通俗理解&quot;&gt;&lt;/a&gt;内网穿透的通俗理解&lt;/h2&gt;&lt;p&gt;最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="内网穿透" scheme="http://blog.jshpy.cn/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用命令行式的MYSQL客户端</title>
+    <link href="http://blog.jshpy.cn/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BC%8F%E7%9A%84MYSQL%E5%AE%A2%E6%88%B7%E7%AB%AF.html"/>
+    <id>http://blog.jshpy.cn/分享/命令行式的MYSQL客户端.html</id>
+    <published>2019-02-27T16:00:00.000Z</published>
+    <updated>2020-04-19T13:58:56.403Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近需要连接到某个数据库，但是由于防护墙限制只能从一个特定的主机上连接，而这个主机是无UI界面的Linux系统。</p><p>那么有没有一款命令行式的MYSQL客户端呢？有的，我找到了<a href="https://github.com/dbcli/mycli" target="_blank" rel="noopener">mycli</a>，它有直观的语法突出显示，你可以用它方便的操作自己的数据库。</p><p>如果恰好有<code>Python</code>的环境，可以用以下指令轻松安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install mycli</span></span><br></pre></td></tr></table></figure><p>或者下载源码后:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python setup.py install</span></span><br></pre></td></tr></table></figure><p>其他的平台：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew update &amp;&amp; brew install mycli  <span class="comment"># macOS</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install mycli <span class="comment"># debian or ubuntu</span></span></span><br></pre></td></tr></table></figure><p>安装好后输入命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mycli --<span class="built_in">help</span></span></span><br></pre></td></tr></table></figure><p>可以看到帮助信息</p><pre><code>Usage: mycli [OPTIONS] [DATABASE]A MySQL terminal client with auto-completion and syntax highlighting.Examples:    - mycli my_database    - mycli -u my_user -h my_host.com my_database    - mycli mysql://my_user@my_host.com:3306/my_databaseOptions:-h, --host TEXT               Host address of the database.-P, --port INTEGER            Port number to use for connection. Honors                                $MYSQL_TCP_PORT.-u, --user TEXT               User name to connect to the database.-S, --socket TEXT             The socket file to use for connection.-p, --password TEXT           Password to connect to the database.--pass TEXT                   Password to connect to the database.--ssl-ca PATH                 CA file in PEM format.--ssl-capath TEXT             CA directory.--ssl-cert PATH               X509 cert in PEM format.--ssl-key PATH                X509 key in PEM format.--ssl-cipher TEXT             SSL cipher to use.--ssl-verify-server-cert      Verify server&apos;s &quot;Common Name&quot; in its cert                                against hostname used when connecting. This                                option is disabled by default.-V, --version                 Output mycli&apos;s version.-v, --verbose                 Verbose output.-D, --database TEXT           Database to use.-d, --dsn TEXT                Use DSN configured into the [alias_dsn]                                section of myclirc file.--list-dsn                    list of DSN configured into the [alias_dsn]                                section of myclirc file.-R, --prompt TEXT             Prompt format (Default: &quot;\t \u@\h:\d&gt; &quot;).-l, --logfile FILENAME        Log every query and its results to a file.--defaults-group-suffix TEXT  Read MySQL config groups with the specified                                suffix.--defaults-file PATH          Only read MySQL options from the given file.--myclirc PATH                Location of myclirc file.--auto-vertical-output        Automatically switch to vertical output mode                                if the result is wider than the terminal                                width.-t, --table                   Display batch output in table format.--csv                         Display batch output in CSV format.--warn / --no-warn            Warn before running a destructive query.--local-infile BOOLEAN        Enable/disable LOAD DATA LOCAL INFILE.--login-path TEXT             Read this path from the login file.-e, --execute TEXT            Execute command and quit.--help                        Show this message and exit.</code></pre><p>根据提示连接后，就可以用你熟知的SQL操作数据库啦：</p><pre><code>Version: 1.17.0Chat: https://gitter.im/dbcli/mycliMail: https://groups.google.com/forum/#!forum/mycli-usersHome: http://mycli.netThanks to the contributor - Steve Robbinsmysql wptest@127.0.0.1:wptest&gt; show tables;                                                        share                                        show     [F3] Multiline: OFF    Right-arrow to complete suggestion </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近需要连接到某个数据库，但是由于防护墙限制只能从一个特定的主机上连接，而这个主机是无UI界面的Linux系统。&lt;/p&gt;
+&lt;p&gt;那么有没有一款命令行式的MYSQL客户端呢？有的，我找到了&lt;a href=&quot;https://github.com/dbcli/mycli&quot;
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="MYSQL" scheme="http://blog.jshpy.cn/tags/MYSQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>用Maven导入本地的jar包</title>
-    <link href="http://jshpy.cn/Java/%E7%94%A8Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0%E7%9A%84jar%E5%8C%85.html"/>
-    <id>http://jshpy.cn/Java/用Maven导入本地的jar包.html</id>
+    <link href="http://blog.jshpy.cn/Java/%E7%94%A8Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0%E7%9A%84jar%E5%8C%85.html"/>
+    <id>http://blog.jshpy.cn/Java/用Maven导入本地的jar包.html</id>
     <published>2019-02-24T16:00:00.000Z</published>
     <updated>2019-03-06T13:33:42.513Z</updated>
     
@@ -36,72 +142,70 @@
     
     </summary>
     
-      <category term="Java" scheme="http://jshpy.cn/categories/Java/"/>
+      <category term="Java" scheme="http://blog.jshpy.cn/categories/Java/"/>
     
     
-      <category term="Maven" scheme="http://jshpy.cn/tags/Maven/"/>
+      <category term="Maven" scheme="http://blog.jshpy.cn/tags/Maven/"/>
     
   </entry>
   
   <entry>
-    <title>用Python搭建简单的HTTP服务</title>
-    <link href="http://jshpy.cn/%E5%88%86%E4%BA%AB/%E7%94%A8Python%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84HTTP%E6%9C%8D%E5%8A%A1.html"/>
-    <id>http://jshpy.cn/分享/用Python搭建简单的HTTP服务.html</id>
-    <published>2018-12-20T16:00:00.000Z</published>
-    <updated>2019-03-06T13:33:52.156Z</updated>
+    <title>Scrapy实用技巧</title>
+    <link href="http://blog.jshpy.cn/%E7%88%AC%E8%99%AB/scrapy%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html"/>
+    <id>http://blog.jshpy.cn/爬虫/scrapy实用技巧.html</id>
+    <published>2018-12-27T16:00:00.000Z</published>
+    <updated>2020-04-19T13:59:19.218Z</updated>
     
-    <content type="html"><![CDATA[<p>分享一个快速用Python搭建简单的HTTP服务的方法。</p><p>平时我们可能有需要，传输某个文件到手机，或者工作中某台服务器的电脑。</p><p>假如这个手机是个测试手机/服务器，并没有微信QQ之类的软件，而且你也不想费时去安装及登陆账号，而这个这个时候恰好你的电脑有Python环境，事情一下就简单了许多：</p><ul><li>第一步 打开终端窗口，cd至你想要传输文件的目录。</li><li>第二步 Python3环境，输入<code>python -m http.server 8080</code>；Python2环境，输入<code>python -m SimpleHTTPServer 8080</code>；</li></ul><p>看到如下字样说明服务开启成功：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Serving HTTP on <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span> port <span class="number">8080</span> (http:<span class="comment">//0.0.0.0:8080/) ...</span></span><br></pre></td></tr></table></figure><p>此时用手机或其他电脑浏览器访问本机的IP和端口号即可下载此目录下的相关文件：</p><p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/1535288756699.jpg" alt="pic"></p><p>当然手机和电脑要和本机处在同一个本地网络中。</p><p>如果想让外网设备也可以访问，做个内网穿透就可以很方便的实现啦。</p>]]></content>
+    <content type="html"><![CDATA[<p>在使用scrapy过程中总结了一些小技巧，在此分享出来供大家参考。</p><h2 id="用-LinkExtractor-收取链接"><a href="#用-LinkExtractor-收取链接" class="headerlink" title="用 LinkExtractor 收取链接"></a>用 LinkExtractor 收取链接</h2><p>以 <a href="http://www.hao123.com/sitemap" target="_blank" rel="noopener">http://www.hao123.com/sitemap</a> 为例子：</p><p>在shell中运行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell http://www.hao123.com/sitemap</span><br></pre></td></tr></table></figure><p>进入shell调试模式，我们来看看使用linkextractors的效果</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> scrapy.linkextractors <span class="keyword">import</span> LinkExtractor</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>links = LinkExtractor(allow=(), restrict_xpaths=(<span class="string">'//a[@class="link"]'</span>)).extract_links(response)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(links)</span><br><span class="line"><span class="number">113</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> link <span class="keyword">in</span> links[:<span class="number">10</span>]:</span><br><span class="line"><span class="meta">... </span>    print(link.text.replace(<span class="string">'\n'</span>,<span class="string">''</span>),<span class="string">':'</span>,link.url)</span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line">天气 : http://tianqi.hao123.com/</span><br><span class="line">万年历 : http://www.hao123.com/rili</span><br><span class="line">地图 : http://www.hao123.com/map</span><br><span class="line">查询 : http://life.hao123.com/info</span><br><span class="line">生活 : http://www.hao123.com/shenghuo</span><br><span class="line">hao到家 : http://life.hao123.com/</span><br><span class="line">美食菜谱 : http://www.hao123.com/menu</span><br><span class="line">特价 : http://tejia.hao123.com/?tn=kztj</span><br><span class="line">购物 : http://gouwu.hao123.com/</span><br><span class="line">团购 : https://www.nuomi.com/?utm_source=hao123&amp;utm_medium=channel_midright&amp;cid=001606</span><br></pre></td></tr></table></figure><p>利用Xpath，可以很方便的获取到链接的文本和URL</p><h2 id="命令行调试代码"><a href="#命令行调试代码" class="headerlink" title="命令行调试代码"></a>命令行调试代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.shell <span class="keyword">import</span> inspect_response</span><br><span class="line">inspect_response(response, self)</span><br></pre></td></tr></table></figure><p>在需要调试的地方插入此代码，程序运行过程中会停在该处，如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">2018-05-28 10:29:14 [scrapy.core.engine] INFO: Spider opened</span><br><span class="line">2018-05-28 10:29:14 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)</span><br><span class="line">[s] Available Scrapy objects:</span><br><span class="line">&gt;&gt;&gt; [s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)</span><br><span class="line">[s]   crawler    &lt;scrapy.crawler.Crawler object at 0x10549dfd0&gt;</span><br><span class="line">[s]   item       &#123;&#125;</span><br><span class="line">[s]   request    &lt;GET https://movie.douban.com/chart&gt;</span><br><span class="line">[s]   response   &lt;200 https://movie.douban.com/chart&gt;</span><br><span class="line">[s]   settings   &lt;scrapy.settings.Settings object at 0x10549def0&gt;</span><br><span class="line">[s]   spider     &lt;TestSpider &apos;test&apos; at 0x1055e1748&gt;</span><br><span class="line">[s] Useful shortcuts:</span><br><span class="line">[s]   shelp()           Shell help (print this help)</span><br><span class="line">[s]   view(response)    View response in a browser</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure><p>此时可以针对返回的<code>response</code>进行调试工作。</p><h2 id="重写-start-requests-方法"><a href="#重写-start-requests-方法" class="headerlink" title="重写 start_requests 方法"></a>重写 start_requests 方法</h2><p>我们知道在编写spider的时候都有一个初始URL列表，也即<code>start_urls</code>，如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackOverflowSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'stackoverflow'</span></span><br><span class="line">    start_urls = [<span class="string">'http://stackoverflow.com/questions?sort=votes'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> href <span class="keyword">in</span> response.css(<span class="string">'.question-summary h3 a::attr(href)'</span>):</span><br><span class="line">            full_url = response.urljoin(href.extract())</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(full_url, callback=self.parse_question)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_question</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">yield</span> &#123;</span><br><span class="line">            <span class="string">'title'</span>: response.css(<span class="string">'h1 a::text'</span>).extract()[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'votes'</span>: response.css(<span class="string">'.question .vote-count-post::text'</span>).extract()[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'body'</span>: response.css(<span class="string">'.question .post-text'</span>).extract()[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'tags'</span>: response.css(<span class="string">'.question .post-tag::text'</span>).extract(),</span><br><span class="line">            <span class="string">'link'</span>: response.url,</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure><p>但有时我们希望灵活的把初始URL分配给不同的回调函数，这时我们可以重写<code>Spider</code>类的<code>start_requests</code> 方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">    ershoufang = <span class="string">"https://nj.5i5j.com/ershoufang/o6/"</span></span><br><span class="line">    zufang = <span class="string">"https://nj.5i5j.com/zufang/o6/"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">yield</span> Request(ershoufang, callback=self.parse_ershoufang,dont_filter = <span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">yield</span> Request(zufang, callback=self.parse_zufang,dont_filter = <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure><p>当然你还可以基于这个方法做一个URL和parse的映射，这样就可以在一个爬虫下处理不同类型的页面。</p><h2 id="Request-meta-特殊键"><a href="#Request-meta-特殊键" class="headerlink" title="Request.meta 特殊键"></a>Request.meta 特殊键</h2><p><code>Request.meta</code>属性可以包含任何任意数据，也就意味着除了<code>Scrapy</code>及其内置扩展的一些特殊键，我们可以自定义一些对我们有用的键用于在请求和响应间传递，拿官方示例的 <code>cookiejar</code> 来说。</p><p>Scrapy通过使用 cookiejar Request meta key来支持单spider追踪多cookie session。 默认情况下其使用一个cookie jar(session)，不过您可以传递一个标示符来使用多个。</p><p>例如:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, url <span class="keyword">in</span> enumerate(urls):</span><br><span class="line">    <span class="keyword">yield</span> scrapy.Request(<span class="string">"http://www.example.com"</span>, meta=&#123;<span class="string">'cookiejar'</span>: i&#125;,</span><br><span class="line">        callback=self.parse_page)</span><br></pre></td></tr></table></figure><p>需要注意的是 cookiejar meta key不是”黏性的(sticky)”。 您需要在之后的request请求中接着传递。例如:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">    <span class="comment"># do some processing</span></span><br><span class="line">    <span class="keyword">return</span> scrapy.Request(<span class="string">"http://www.example.com/otherpage"</span>,</span><br><span class="line">        meta=&#123;<span class="string">'cookiejar'</span>: response.meta[<span class="string">'cookiejar'</span>]&#125;,</span><br><span class="line">        callback=self.parse_other_page)</span><br></pre></td></tr></table></figure><p>具体如何使用，就看你的想象力啦。</p><h2 id="给请求添加代理（中间件）"><a href="#给请求添加代理（中间件）" class="headerlink" title="给请求添加代理（中间件）"></a>给请求添加代理（中间件）</h2><p>爬虫不可避免的需要使用代理，我们通过下载器中间件，截获发出的请求把代理信息添加进去。</p><p>以阿布云为例，首先我们需要编辑项目下的<code>middlewares.py</code>文件，新建一个代理中间件类：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 代理服务器</span></span><br><span class="line">proxyServer = <span class="string">"http://http-dyn.abuyun.com:9020"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 代理隧道验证信息</span></span><br><span class="line">proxyUser = <span class="string">"H01234567890123D"</span></span><br><span class="line">proxyPass = <span class="string">"0123456789012345"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for Python2</span></span><br><span class="line"><span class="comment"># proxyAuth = "Basic " + base64.b64encode(proxyUser + ":" + proxyPass)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for Python3</span></span><br><span class="line">proxyAuth = <span class="string">"Basic "</span> + base64.urlsafe_b64encode(bytes((proxyUser + <span class="string">":"</span> + proxyPass), <span class="string">"ascii"</span>)).decode(<span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyMiddleware</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self, request, spider)</span>:</span></span><br><span class="line">        request.meta[<span class="string">"proxy"</span>] = proxyServer</span><br><span class="line"></span><br><span class="line">        request.headers[<span class="string">"Proxy-Authorization"</span>] = proxyAuth</span><br></pre></td></tr></table></figure><p>在重写的<code>process_request</code>方法中，我们将必要的信息添加给即将发出的request。</p><p>然后我们还需要在 <code>settings.py</code> 文件中使能我们自定义的代理中间件：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable or disable downloader middlewares</span></span><br><span class="line"><span class="comment"># See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html</span></span><br><span class="line">DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="line">    <span class="string">'myproject.middlewares.ProxyMiddleware'</span>: <span class="number">543</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样我们发出的请求scrapy就会自动为我们添加代理信息了。</p><h2 id="Scrapy-动态调试和启动多爬虫"><a href="#Scrapy-动态调试和启动多爬虫" class="headerlink" title="Scrapy 动态调试和启动多爬虫"></a>Scrapy 动态调试和启动多爬虫</h2><p>参见我之前的一篇<a href="https://jshpy.cn/%E7%88%AC%E8%99%AB/scrapy%E5%90%AF%E5%8A%A8%E5%A4%9A%E7%88%AC%E8%99%AB.html" target="_blank" rel="noopener">文章</a></p><h2 id="…-…"><a href="#…-…" class="headerlink" title="… …"></a>… …</h2>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;分享一个快速用Python搭建简单的HTTP服务的方法。&lt;/p&gt;
-&lt;p&gt;平时我们可能有需要，传输某个文件到手机，或者工作中某台服务器的电脑。&lt;/p&gt;
-&lt;p&gt;假如这个手机是个测试手机/服务器，并没有微信QQ之类的软件，而且你也不想费时去安装及登陆账号，而这个这个时候恰好你的电
+        &lt;p&gt;在使用scrapy过程中总结了一些小技巧，在此分享出来供大家参考。&lt;/p&gt;
+&lt;h2 id=&quot;用-LinkExtractor-收取链接&quot;&gt;&lt;a href=&quot;#用-LinkExtractor-收取链接&quot; class=&quot;headerlink&quot; title=&quot;用 LinkExtra
       
     
     </summary>
     
-      <category term="分享" scheme="http://jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="爬虫" scheme="http://blog.jshpy.cn/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="HTTP" scheme="http://jshpy.cn/tags/HTTP/"/>
-    
-      <category term="Python" scheme="http://jshpy.cn/tags/Python/"/>
+      <category term="Scrapy" scheme="http://blog.jshpy.cn/tags/Scrapy/"/>
     
   </entry>
   
   <entry>
-    <title>类图的相关概念</title>
-    <link href="http://jshpy.cn/%E5%88%86%E4%BA%AB/%E7%B1%BB%E5%9B%BE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5.html"/>
-    <id>http://jshpy.cn/分享/类图的相关概念.html</id>
-    <published>2018-10-17T16:00:00.000Z</published>
-    <updated>2019-03-06T13:34:05.246Z</updated>
+    <title>Scrapy实现动态调试和同时启动多个爬虫</title>
+    <link href="http://blog.jshpy.cn/%E7%88%AC%E8%99%AB/scrapy%E5%90%AF%E5%8A%A8%E5%A4%9A%E7%88%AC%E8%99%AB.html"/>
+    <id>http://blog.jshpy.cn/爬虫/scrapy启动多爬虫.html</id>
+    <published>2018-12-14T16:00:00.000Z</published>
+    <updated>2020-04-19T13:59:15.746Z</updated>
     
-    <content type="html"><![CDATA[<p>学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。</p><p>我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构我们的项目。</p><p>类图将类与类之间的关系氛围以下几种：</p><ul><li>实现</li><li>泛化</li><li>聚合</li><li>组合</li><li>关联</li><li>依赖</li></ul><h2 id="实现-泛化"><a href="#实现-泛化" class="headerlink" title="实现 泛化"></a>实现 泛化</h2><p>我觉得可以将它们放在一起来看，因为它们都体现出类的一种继承结构，也即 is-a 的关系，举个例子：自行车是车、猫是动物</p><p>那么在实际的代码中<strong>实现表示继承抽象类</strong>，符号是一条带空心箭头的虚线，箭头方向表示<strong>继承自</strong>，继承自谁就指向谁。</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_realize.jpg" alt="实现"></p><p>泛化，从字面上理解就有推广开来的意味，在实际代码中是继承自非抽象类，符号是带空心箭头的实线。</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalize.jpg" alt="泛化"></p><h2 id="聚合-组合"><a href="#聚合-组合" class="headerlink" title="聚合 组合"></a>聚合 组合</h2><p>其实组合是一种特殊的聚合，区别聚合与组合原则在于：整体不存在时部分是否还存在？</p><p>如果整体不存在时部分还存在，那就是聚合它的整体和部分不是强依赖的，比如羊群解散了羊作为一个独立的个体仍然是存在的，聚合关系用一条带空心菱形箭头的直线表示，如下图表示A聚合到B上，或者说B由A聚合：</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_aggregation.jpg" alt="聚合"></p><p>反之如果整体不存在时部分也不存在了，那就是组合它是一种强依赖的特殊聚合关系，例如：公司不存在了，部门也将不存在了，组合关系用一条带实心菱形箭头直线表示，如下图表示A组成B，或者B由A组成；</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_composition.jpg" alt="组合"></p><h2 id="依赖-关联"><a href="#依赖-关联" class="headerlink" title="依赖 关联"></a>依赖 关联</h2><p>一个对象A在运行期间会用到另一个对象B我们就称作A依赖B，他们之间的关系就是依赖关系。</p><p>显然关联关系也是依赖关系的一种，区别在于关联关系是一种静态关系， 通常与运行状态无关，一般由常识等因素决定的，它一般用来定义对象之间静态的、天然的结构。所以，关联关系是一种“强依赖”的关系；比如学生和学校就是一种关联关系。关联关系是用一条直线表示的默认不强调方向，表示对象间相互知道；如果特别强调方向，如下图，表示A知道B，但 B不知道A：</p><p>关联关系在最终代码中，通常是以成员变量的形式实现的。</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_association.jpg" alt="关联"></p><p>而依赖它是一种临时性的关系，通常在运行期间产生，并且随着运行时的变化，依赖关系也可能发生变化。因此在最终代码中，依赖关系体现为类构造方法及类方法的传入参数，因为参数是可以在运行时动态变化的。依赖关系是用一套带箭头的虚线表示的如下图表示A依赖于B：</p><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_dependency.jpg" alt="依赖"></p><p>由此可见，上面的组合和聚合也是一种依赖，而且是强依赖关系–关联关系。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="一般启动方式"><a href="#一般启动方式" class="headerlink" title="一般启动方式"></a>一般启动方式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl spider_name</span><br></pre></td></tr></table></figure><p>命令行启动好处是灵活方便, 可以通过传递参数的形式控制爬虫的行为和输出。</p><blockquote><p>参见<a href="http://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/tutorial.html#id3" target="_blank" rel="noopener">官方文档</a></p></blockquote><p>比如你可以配置爬虫采集到数据的输出方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl dmoz -o items.json</span><br></pre></td></tr></table></figure></p><p>但是它的缺点也很明显:</p><ul><li>原子性太强，不方便动态调试代码</li><li>当需要启动多个爬虫时，不方便操作</li></ul><h2 id="新的思路"><a href="#新的思路" class="headerlink" title="新的思路"></a>新的思路</h2><p>我们知道<code>Scrapy</code>是基于Twisted实现的爬虫框架, 因此我们可以通过引入<code>reactor</code>来启动我们的爬虫。</p><p>为了方便理解，我把的项目结构展示出来：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── learn_scrapy</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── items.py</span><br><span class="line">│   ├── middlewares.py</span><br><span class="line">│   ├── pipelines.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   └── spiders</span><br><span class="line">│       ├── __init__.py</span><br><span class="line">│       └── test.py</span><br><span class="line">├── debug.py</span><br><span class="line">└── scrapy.cfg</span><br></pre></td></tr></table></figure><p>我在项目根目录下新建了文件 <code>debug.py</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> reactor</span><br><span class="line"><span class="keyword">from</span> scrapy.crawler <span class="keyword">import</span> CrawlerRunner</span><br><span class="line"><span class="keyword">from</span> scrapy.utils.project <span class="keyword">import</span> get_project_settings</span><br><span class="line"><span class="keyword">from</span> scrapy.utils.log <span class="keyword">import</span> configure_logging</span><br><span class="line"><span class="comment"># 引入spider</span></span><br><span class="line"><span class="keyword">from</span> learn_scrapy.spiders.test <span class="keyword">import</span> TestSpider</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">settings = get_project_settings()</span><br><span class="line">configure_logging(settings)</span><br><span class="line">runner = CrawlerRunner(settings)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_spider</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 装载爬虫</span></span><br><span class="line">    runner.crawl(TestSpider)</span><br><span class="line">    <span class="comment"># 如果有多个爬虫需要启动可以一直装载下去</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider2)</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider3)</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider4)</span></span><br><span class="line">    <span class="comment"># ... ...</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 爬虫结束后停止事件循环</span></span><br><span class="line">    d = runner.join()</span><br><span class="line">    d.addBoth(<span class="keyword">lambda</span> _: reactor.stop())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 启动事件循环</span></span><br><span class="line">    reactor.run()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    start_spider()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure><p>运行这个文件<code>python3 debug.py</code>就可以启动爬虫。</p><h2 id="动态调试"><a href="#动态调试" class="headerlink" title="动态调试"></a>动态调试</h2><p>在IDE下选择启动debug：</p><p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/debug_scrapy.png" alt=""></p><p>可以看到程序停在了断点处，可以很方便的查看程序运行时的堆栈和变量信息：</p><p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/debug_scrapy2.png" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。&lt;/p&gt;
-&lt;p&gt;我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构
+        &lt;h2 id=&quot;一般启动方式&quot;&gt;&lt;a href=&quot;#一般启动方式&quot; class=&quot;headerlink&quot; title=&quot;一般启动方式&quot;&gt;&lt;/a&gt;一般启动方式&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
       
     
     </summary>
     
-      <category term="分享" scheme="http://jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="爬虫" scheme="http://blog.jshpy.cn/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="UML" scheme="http://jshpy.cn/tags/UML/"/>
+      <category term="Scrapy" scheme="http://blog.jshpy.cn/tags/Scrapy/"/>
+    
+      <category term="Python3" scheme="http://blog.jshpy.cn/tags/Python3/"/>
     
   </entry>
   
   <entry>
     <title>Spring Boot的一些注解</title>
-    <link href="http://jshpy.cn/Spring/Spring%20Boot%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E8%A7%A3.html"/>
-    <id>http://jshpy.cn/Spring/Spring Boot的一些注解.html</id>
+    <link href="http://blog.jshpy.cn/Spring/Spring%20Boot%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E8%A7%A3.html"/>
+    <id>http://blog.jshpy.cn/Spring/Spring Boot的一些注解.html</id>
     <published>2018-08-12T16:00:00.000Z</published>
     <updated>2019-03-06T13:32:48.399Z</updated>
     
@@ -118,17 +222,17 @@
     
     </summary>
     
-      <category term="Spring" scheme="http://jshpy.cn/categories/Spring/"/>
+      <category term="Spring" scheme="http://blog.jshpy.cn/categories/Spring/"/>
     
     
-      <category term="Spring Boot" scheme="http://jshpy.cn/tags/Spring-Boot/"/>
+      <category term="Spring Boot" scheme="http://blog.jshpy.cn/tags/Spring-Boot/"/>
     
   </entry>
   
   <entry>
     <title>matplotlib简单上手</title>
-    <link href="http://jshpy.cn/%E5%8F%AF%E8%A7%86%E5%8C%96/matplotlib%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B.html"/>
-    <id>http://jshpy.cn/可视化/matplotlib简单上手.html</id>
+    <link href="http://blog.jshpy.cn/%E5%8F%AF%E8%A7%86%E5%8C%96/matplotlib%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B.html"/>
+    <id>http://blog.jshpy.cn/可视化/matplotlib简单上手.html</id>
     <published>2018-07-01T09:33:13.594Z</published>
     <updated>2019-03-06T13:32:27.849Z</updated>
     
@@ -144,42 +248,17 @@
     
     </summary>
     
-      <category term="可视化" scheme="http://jshpy.cn/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="可视化" scheme="http://blog.jshpy.cn/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
     
-      <category term="matplotlib" scheme="http://jshpy.cn/tags/matplotlib/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>内网穿透的通俗理解</title>
-    <link href="http://jshpy.cn/%E5%88%86%E4%BA%AB/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%9A%84%E9%80%9A%E4%BF%97%E7%90%86%E8%A7%A3.html"/>
-    <id>http://jshpy.cn/分享/内网穿透的通俗理解.html</id>
-    <published>2018-06-14T16:00:00.000Z</published>
-    <updated>2019-03-08T13:02:42.524Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="内网穿透的通俗理解"><a href="#内网穿透的通俗理解" class="headerlink" title="内网穿透的通俗理解"></a>内网穿透的通俗理解</h2><p>最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过查阅资料实现了相关功能，借此总结下自己对于内网穿透粗浅的理解。</p><p>平日里我们访问的网站，背后都有服务器在支撑服务，而我们之所以能访问这台服务器是因为我们能在互联网中定位到他的IP地址。</p><p>这个IP是运营商分配的<code>公网IP地址</code>，在网络中是独一无二的，但是这样的IP资源很宝贵，不能无节制的分配。</p><p>但是很多机器都需要联网，怎么办？</p><p>回想下家里联网的场景，路由器通过拨号向运营商申请到了一个<code>公网IP地址</code>（下一次拨号还会变化），家里所有联网设备都通过这个IP地址和互联网上的其他设备通信。</p><p>与此同时路由器把自己与家中其他通过有线或无限的连接到路由器的设备组成了一个局域网，在这个局域网中每个设备都有一个自己的<code>私有IP地址</code>。</p><p>路由器在这个局域网中的扮演的是网关的角色，其他设备网络请求和接受的流量都由路由器转发，因此路由器像是家里水网的总闸门，对于外部网络设备而言家里的局域网是个黑盒子，只有<code>公网IP地址</code>是可见的。</p><p>对于网站服务器来说本机IP就是<code>公网IP地址</code>，那么我开个服务，告诉别人IP地址和端口号人家就可以访问了。</p><p>但对于家里的电脑就不一样了，别人不可能通过这个<code>私有IP地址</code>访问你发布的服务，因为它在网络中并不惟一，很可能隔壁二毛家的电脑IP和你的一样。</p><p>那如果非要别人访问怎么办，有没有解决方案？</p><p>有，方案之一是借助一个拥有<code>公网IP地址</code>的服务器来做转发工作，提供这种转发服务（内网穿透技术）的有花生壳、ngrok等等，他们通常是有一整套客户端和服务端通信的系统。服务端安装在用来转发的服务器上，与内网你家电脑的客户端通过约定的协议通信，这样别人想要访问你电脑的服务只要固定的找这个转发服务器就可以了，IP也是固定不变的。</p><p>转发服务器通常会分配一个二级或三级域名给到你，这个域名是和你的客户端绑定的，这样你打开电脑上的客户端后，别人就可以通过这个域名将其解析至转发服务器，而后转发服务器再找到你的客户端最终完成内网的穿透。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;内网穿透的通俗理解&quot;&gt;&lt;a href=&quot;#内网穿透的通俗理解&quot; class=&quot;headerlink&quot; title=&quot;内网穿透的通俗理解&quot;&gt;&lt;/a&gt;内网穿透的通俗理解&lt;/h2&gt;&lt;p&gt;最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过
-      
-    
-    </summary>
-    
-      <category term="分享" scheme="http://jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="内网穿透" scheme="http://jshpy.cn/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+      <category term="matplotlib" scheme="http://blog.jshpy.cn/tags/matplotlib/"/>
     
   </entry>
   
   <entry>
     <title>Tensorflow简单认识</title>
-    <link href="http://jshpy.cn/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Tensorflow%E7%AE%80%E5%8D%95%E8%AE%A4%E8%AF%86.html"/>
-    <id>http://jshpy.cn/机器学习/Tensorflow简单认识.html</id>
+    <link href="http://blog.jshpy.cn/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Tensorflow%E7%AE%80%E5%8D%95%E8%AE%A4%E8%AF%86.html"/>
+    <id>http://blog.jshpy.cn/机器学习/Tensorflow简单认识.html</id>
     <published>2018-04-19T16:00:00.000Z</published>
     <updated>2019-03-06T13:33:17.356Z</updated>
     
@@ -196,43 +275,17 @@
     
     </summary>
     
-      <category term="机器学习" scheme="http://jshpy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://blog.jshpy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Tensorflow" scheme="http://jshpy.cn/tags/Tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用命令行式的MYSQL客户端</title>
-    <link href="http://jshpy.cn/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BC%8F%E7%9A%84MYSQL%E5%AE%A2%E6%88%B7%E7%AB%AF.html"/>
-    <id>http://jshpy.cn/分享/命令行式的MYSQL客户端.html</id>
-    <published>2018-02-27T16:00:00.000Z</published>
-    <updated>2019-03-06T13:33:31.113Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近需要连接到某个数据库，但是由于防护墙限制只能从一个特定的主机上连接，而这个主机是无UI界面的Linux系统。</p><p>那么有没有一款命令行式的MYSQL客户端呢？有的，我找到了<a href="https://github.com/dbcli/mycli" target="_blank" rel="noopener">mycli</a>，它有直观的语法突出显示，你可以用它方便的操作自己的数据库。</p><p>如果恰好有<code>Python</code>的环境，可以用以下指令轻松安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install mycli</span></span><br></pre></td></tr></table></figure><p>或者下载源码后:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python setup.py install</span></span><br></pre></td></tr></table></figure><p>其他的平台：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew update &amp;&amp; brew install mycli  <span class="comment"># macOS</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install mycli <span class="comment"># debian or ubuntu</span></span></span><br></pre></td></tr></table></figure><p>安装好后输入命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mycli --<span class="built_in">help</span></span></span><br></pre></td></tr></table></figure><p>可以看到帮助信息</p><pre><code>Usage: mycli [OPTIONS] [DATABASE]A MySQL terminal client with auto-completion and syntax highlighting.Examples:    - mycli my_database    - mycli -u my_user -h my_host.com my_database    - mycli mysql://my_user@my_host.com:3306/my_databaseOptions:-h, --host TEXT               Host address of the database.-P, --port INTEGER            Port number to use for connection. Honors                                $MYSQL_TCP_PORT.-u, --user TEXT               User name to connect to the database.-S, --socket TEXT             The socket file to use for connection.-p, --password TEXT           Password to connect to the database.--pass TEXT                   Password to connect to the database.--ssl-ca PATH                 CA file in PEM format.--ssl-capath TEXT             CA directory.--ssl-cert PATH               X509 cert in PEM format.--ssl-key PATH                X509 key in PEM format.--ssl-cipher TEXT             SSL cipher to use.--ssl-verify-server-cert      Verify server&apos;s &quot;Common Name&quot; in its cert                                against hostname used when connecting. This                                option is disabled by default.-V, --version                 Output mycli&apos;s version.-v, --verbose                 Verbose output.-D, --database TEXT           Database to use.-d, --dsn TEXT                Use DSN configured into the [alias_dsn]                                section of myclirc file.--list-dsn                    list of DSN configured into the [alias_dsn]                                section of myclirc file.-R, --prompt TEXT             Prompt format (Default: &quot;\t \u@\h:\d&gt; &quot;).-l, --logfile FILENAME        Log every query and its results to a file.--defaults-group-suffix TEXT  Read MySQL config groups with the specified                                suffix.--defaults-file PATH          Only read MySQL options from the given file.--myclirc PATH                Location of myclirc file.--auto-vertical-output        Automatically switch to vertical output mode                                if the result is wider than the terminal                                width.-t, --table                   Display batch output in table format.--csv                         Display batch output in CSV format.--warn / --no-warn            Warn before running a destructive query.--local-infile BOOLEAN        Enable/disable LOAD DATA LOCAL INFILE.--login-path TEXT             Read this path from the login file.-e, --execute TEXT            Execute command and quit.--help                        Show this message and exit.</code></pre><p>根据提示连接后，就可以用你熟知的SQL操作数据库啦：</p><pre><code>Version: 1.17.0Chat: https://gitter.im/dbcli/mycliMail: https://groups.google.com/forum/#!forum/mycli-usersHome: http://mycli.netThanks to the contributor - Steve Robbinsmysql wptest@127.0.0.1:wptest&gt; show tables;                                                        share                                        show     [F3] Multiline: OFF    Right-arrow to complete suggestion </code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近需要连接到某个数据库，但是由于防护墙限制只能从一个特定的主机上连接，而这个主机是无UI界面的Linux系统。&lt;/p&gt;
-&lt;p&gt;那么有没有一款命令行式的MYSQL客户端呢？有的，我找到了&lt;a href=&quot;https://github.com/dbcli/mycli&quot;
-      
-    
-    </summary>
-    
-      <category term="分享" scheme="http://jshpy.cn/categories/%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="MYSQL" scheme="http://jshpy.cn/tags/MYSQL/"/>
+      <category term="Tensorflow" scheme="http://blog.jshpy.cn/tags/Tensorflow/"/>
     
   </entry>
   
   <entry>
     <title>HTTPS 环境搭建</title>
-    <link href="http://jshpy.cn/%E8%BF%90%E7%BB%B4/HTTPS%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html"/>
-    <id>http://jshpy.cn/运维/HTTPS 环境搭建.html</id>
+    <link href="http://blog.jshpy.cn/%E8%BF%90%E7%BB%B4/HTTPS%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html"/>
+    <id>http://blog.jshpy.cn/运维/HTTPS 环境搭建.html</id>
     <published>2018-01-16T15:33:06.000Z</published>
     <updated>2019-03-06T13:31:45.597Z</updated>
     
@@ -250,65 +303,12 @@
     
     </summary>
     
-      <category term="运维" scheme="http://jshpy.cn/categories/%E8%BF%90%E7%BB%B4/"/>
+      <category term="运维" scheme="http://blog.jshpy.cn/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
-      <category term="HTTPS" scheme="http://jshpy.cn/tags/HTTPS/"/>
+      <category term="HTTPS" scheme="http://blog.jshpy.cn/tags/HTTPS/"/>
     
-      <category term="证书" scheme="http://jshpy.cn/tags/%E8%AF%81%E4%B9%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scrapy实用技巧</title>
-    <link href="http://jshpy.cn/%E7%88%AC%E8%99%AB/scrapy%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html"/>
-    <id>http://jshpy.cn/爬虫/scrapy实用技巧.html</id>
-    <published>2017-12-27T16:00:00.000Z</published>
-    <updated>2019-03-06T13:32:38.622Z</updated>
-    
-    <content type="html"><![CDATA[<p>在使用scrapy过程中总结了一些小技巧，在此分享出来供大家参考。</p><h2 id="用-LinkExtractor-收取链接"><a href="#用-LinkExtractor-收取链接" class="headerlink" title="用 LinkExtractor 收取链接"></a>用 LinkExtractor 收取链接</h2><p>以 <a href="http://www.hao123.com/sitemap" target="_blank" rel="noopener">http://www.hao123.com/sitemap</a> 为例子：</p><p>在shell中运行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell http://www.hao123.com/sitemap</span><br></pre></td></tr></table></figure><p>进入shell调试模式，我们来看看使用linkextractors的效果</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> scrapy.linkextractors <span class="keyword">import</span> LinkExtractor</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>links = LinkExtractor(allow=(), restrict_xpaths=(<span class="string">'//a[@class="link"]'</span>)).extract_links(response)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(links)</span><br><span class="line"><span class="number">113</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> link <span class="keyword">in</span> links[:<span class="number">10</span>]:</span><br><span class="line"><span class="meta">... </span>    print(link.text.replace(<span class="string">'\n'</span>,<span class="string">''</span>),<span class="string">':'</span>,link.url)</span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line">天气 : http://tianqi.hao123.com/</span><br><span class="line">万年历 : http://www.hao123.com/rili</span><br><span class="line">地图 : http://www.hao123.com/map</span><br><span class="line">查询 : http://life.hao123.com/info</span><br><span class="line">生活 : http://www.hao123.com/shenghuo</span><br><span class="line">hao到家 : http://life.hao123.com/</span><br><span class="line">美食菜谱 : http://www.hao123.com/menu</span><br><span class="line">特价 : http://tejia.hao123.com/?tn=kztj</span><br><span class="line">购物 : http://gouwu.hao123.com/</span><br><span class="line">团购 : https://www.nuomi.com/?utm_source=hao123&amp;utm_medium=channel_midright&amp;cid=001606</span><br></pre></td></tr></table></figure><p>利用Xpath，可以很方便的获取到链接的文本和URL</p><h2 id="命令行调试代码"><a href="#命令行调试代码" class="headerlink" title="命令行调试代码"></a>命令行调试代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.shell <span class="keyword">import</span> inspect_response</span><br><span class="line">inspect_response(response, self)</span><br></pre></td></tr></table></figure><p>在需要调试的地方插入此代码，程序运行过程中会停在该处，如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">2018-05-28 10:29:14 [scrapy.core.engine] INFO: Spider opened</span><br><span class="line">2018-05-28 10:29:14 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)</span><br><span class="line">[s] Available Scrapy objects:</span><br><span class="line">&gt;&gt;&gt; [s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)</span><br><span class="line">[s]   crawler    &lt;scrapy.crawler.Crawler object at 0x10549dfd0&gt;</span><br><span class="line">[s]   item       &#123;&#125;</span><br><span class="line">[s]   request    &lt;GET https://movie.douban.com/chart&gt;</span><br><span class="line">[s]   response   &lt;200 https://movie.douban.com/chart&gt;</span><br><span class="line">[s]   settings   &lt;scrapy.settings.Settings object at 0x10549def0&gt;</span><br><span class="line">[s]   spider     &lt;TestSpider &apos;test&apos; at 0x1055e1748&gt;</span><br><span class="line">[s] Useful shortcuts:</span><br><span class="line">[s]   shelp()           Shell help (print this help)</span><br><span class="line">[s]   view(response)    View response in a browser</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure><p>此时可以针对返回的<code>response</code>进行调试工作。</p><h2 id="重写-start-requests-方法"><a href="#重写-start-requests-方法" class="headerlink" title="重写 start_requests 方法"></a>重写 start_requests 方法</h2><p>我们知道在编写spider的时候都有一个初始URL列表，也即<code>start_urls</code>，如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackOverflowSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'stackoverflow'</span></span><br><span class="line">    start_urls = [<span class="string">'http://stackoverflow.com/questions?sort=votes'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> href <span class="keyword">in</span> response.css(<span class="string">'.question-summary h3 a::attr(href)'</span>):</span><br><span class="line">            full_url = response.urljoin(href.extract())</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(full_url, callback=self.parse_question)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_question</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">yield</span> &#123;</span><br><span class="line">            <span class="string">'title'</span>: response.css(<span class="string">'h1 a::text'</span>).extract()[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'votes'</span>: response.css(<span class="string">'.question .vote-count-post::text'</span>).extract()[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'body'</span>: response.css(<span class="string">'.question .post-text'</span>).extract()[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'tags'</span>: response.css(<span class="string">'.question .post-tag::text'</span>).extract(),</span><br><span class="line">            <span class="string">'link'</span>: response.url,</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure><p>但有时我们希望灵活的把初始URL分配给不同的回调函数，这时我们可以重写<code>Spider</code>类的<code>start_requests</code> 方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">    ershoufang = <span class="string">"https://nj.5i5j.com/ershoufang/o6/"</span></span><br><span class="line">    zufang = <span class="string">"https://nj.5i5j.com/zufang/o6/"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">yield</span> Request(ershoufang, callback=self.parse_ershoufang,dont_filter = <span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">yield</span> Request(zufang, callback=self.parse_zufang,dont_filter = <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure><p>当然你还可以基于这个方法做一个URL和parse的映射，这样就可以在一个爬虫下处理不同类型的页面。</p><h2 id="Request-meta-特殊键"><a href="#Request-meta-特殊键" class="headerlink" title="Request.meta 特殊键"></a>Request.meta 特殊键</h2><p><code>Request.meta</code>属性可以包含任何任意数据，也就意味着除了<code>Scrapy</code>及其内置扩展的一些特殊键，我们可以自定义一些对我们有用的键用于在请求和响应间传递，拿官方示例的 <code>cookiejar</code> 来说。</p><p>Scrapy通过使用 cookiejar Request meta key来支持单spider追踪多cookie session。 默认情况下其使用一个cookie jar(session)，不过您可以传递一个标示符来使用多个。</p><p>例如:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, url <span class="keyword">in</span> enumerate(urls):</span><br><span class="line">    <span class="keyword">yield</span> scrapy.Request(<span class="string">"http://www.example.com"</span>, meta=&#123;<span class="string">'cookiejar'</span>: i&#125;,</span><br><span class="line">        callback=self.parse_page)</span><br></pre></td></tr></table></figure><p>需要注意的是 cookiejar meta key不是”黏性的(sticky)”。 您需要在之后的request请求中接着传递。例如:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">    <span class="comment"># do some processing</span></span><br><span class="line">    <span class="keyword">return</span> scrapy.Request(<span class="string">"http://www.example.com/otherpage"</span>,</span><br><span class="line">        meta=&#123;<span class="string">'cookiejar'</span>: response.meta[<span class="string">'cookiejar'</span>]&#125;,</span><br><span class="line">        callback=self.parse_other_page)</span><br></pre></td></tr></table></figure><p>具体如何使用，就看你的想象力啦。</p><h2 id="给请求添加代理（中间件）"><a href="#给请求添加代理（中间件）" class="headerlink" title="给请求添加代理（中间件）"></a>给请求添加代理（中间件）</h2><p>爬虫不可避免的需要使用代理，我们通过下载器中间件，截获发出的请求把代理信息添加进去。</p><p>以阿布云为例，首先我们需要编辑项目下的<code>middlewares.py</code>文件，新建一个代理中间件类：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 代理服务器</span></span><br><span class="line">proxyServer = <span class="string">"http://http-dyn.abuyun.com:9020"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 代理隧道验证信息</span></span><br><span class="line">proxyUser = <span class="string">"H01234567890123D"</span></span><br><span class="line">proxyPass = <span class="string">"0123456789012345"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for Python2</span></span><br><span class="line"><span class="comment"># proxyAuth = "Basic " + base64.b64encode(proxyUser + ":" + proxyPass)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for Python3</span></span><br><span class="line">proxyAuth = <span class="string">"Basic "</span> + base64.urlsafe_b64encode(bytes((proxyUser + <span class="string">":"</span> + proxyPass), <span class="string">"ascii"</span>)).decode(<span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyMiddleware</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self, request, spider)</span>:</span></span><br><span class="line">        request.meta[<span class="string">"proxy"</span>] = proxyServer</span><br><span class="line"></span><br><span class="line">        request.headers[<span class="string">"Proxy-Authorization"</span>] = proxyAuth</span><br></pre></td></tr></table></figure><p>在重写的<code>process_request</code>方法中，我们将必要的信息添加给即将发出的request。</p><p>然后我们还需要在 <code>settings.py</code> 文件中使能我们自定义的代理中间件：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable or disable downloader middlewares</span></span><br><span class="line"><span class="comment"># See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html</span></span><br><span class="line">DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="line">    <span class="string">'myproject.middlewares.ProxyMiddleware'</span>: <span class="number">543</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样我们发出的请求scrapy就会自动为我们添加代理信息了。</p><h2 id="Scrapy-动态调试和启动多爬虫"><a href="#Scrapy-动态调试和启动多爬虫" class="headerlink" title="Scrapy 动态调试和启动多爬虫"></a>Scrapy 动态调试和启动多爬虫</h2><p>参见我之前的一篇<a href="https://jshpy.cn/%E7%88%AC%E8%99%AB/scrapy%E5%90%AF%E5%8A%A8%E5%A4%9A%E7%88%AC%E8%99%AB.html">文章</a></p><h2 id="…-…"><a href="#…-…" class="headerlink" title="… …"></a>… …</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在使用scrapy过程中总结了一些小技巧，在此分享出来供大家参考。&lt;/p&gt;
-&lt;h2 id=&quot;用-LinkExtractor-收取链接&quot;&gt;&lt;a href=&quot;#用-LinkExtractor-收取链接&quot; class=&quot;headerlink&quot; title=&quot;用 LinkExtra
-      
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://jshpy.cn/categories/%E7%88%AC%E8%99%AB/"/>
-    
-    
-      <category term="Scrapy" scheme="http://jshpy.cn/tags/Scrapy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scrapy实现动态调试和同时启动多个爬虫</title>
-    <link href="http://jshpy.cn/%E7%88%AC%E8%99%AB/scrapy%E5%90%AF%E5%8A%A8%E5%A4%9A%E7%88%AC%E8%99%AB.html"/>
-    <id>http://jshpy.cn/爬虫/scrapy启动多爬虫.html</id>
-    <published>2017-12-14T16:00:00.000Z</published>
-    <updated>2019-03-06T13:32:32.885Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一般启动方式"><a href="#一般启动方式" class="headerlink" title="一般启动方式"></a>一般启动方式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl spider_name</span><br></pre></td></tr></table></figure><p>命令行启动好处是灵活方便, 可以通过传递参数的形式控制爬虫的行为和输出。</p><blockquote><p>参见<a href="http://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/tutorial.html#id3" target="_blank" rel="noopener">官方文档</a></p></blockquote><p>比如你可以配置爬虫采集到数据的输出方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl dmoz -o items.json</span><br></pre></td></tr></table></figure></p><p>但是它的缺点也很明显:</p><ul><li>原子性太强，不方便动态调试代码</li><li>当需要启动多个爬虫时，不方便操作</li></ul><h2 id="新的思路"><a href="#新的思路" class="headerlink" title="新的思路"></a>新的思路</h2><p>我们知道<code>Scrapy</code>是基于Twisted实现的爬虫框架, 因此我们可以通过引入<code>reactor</code>来启动我们的爬虫。</p><p>为了方便理解，我把的项目结构展示出来：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── learn_scrapy</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── items.py</span><br><span class="line">│   ├── middlewares.py</span><br><span class="line">│   ├── pipelines.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   └── spiders</span><br><span class="line">│       ├── __init__.py</span><br><span class="line">│       └── test.py</span><br><span class="line">├── debug.py</span><br><span class="line">└── scrapy.cfg</span><br></pre></td></tr></table></figure><p>我在项目根目录下新建了文件 <code>debug.py</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> reactor</span><br><span class="line"><span class="keyword">from</span> scrapy.crawler <span class="keyword">import</span> CrawlerRunner</span><br><span class="line"><span class="keyword">from</span> scrapy.utils.project <span class="keyword">import</span> get_project_settings</span><br><span class="line"><span class="keyword">from</span> scrapy.utils.log <span class="keyword">import</span> configure_logging</span><br><span class="line"><span class="comment"># 引入spider</span></span><br><span class="line"><span class="keyword">from</span> learn_scrapy.spiders.test <span class="keyword">import</span> TestSpider</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">settings = get_project_settings()</span><br><span class="line">configure_logging(settings)</span><br><span class="line">runner = CrawlerRunner(settings)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_spider</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 装载爬虫</span></span><br><span class="line">    runner.crawl(TestSpider)</span><br><span class="line">    <span class="comment"># 如果有多个爬虫需要启动可以一直装载下去</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider2)</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider3)</span></span><br><span class="line">    <span class="comment"># runner.crawl(TestSpider4)</span></span><br><span class="line">    <span class="comment"># ... ...</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 爬虫结束后停止事件循环</span></span><br><span class="line">    d = runner.join()</span><br><span class="line">    d.addBoth(<span class="keyword">lambda</span> _: reactor.stop())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 启动事件循环</span></span><br><span class="line">    reactor.run()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    start_spider()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure><p>运行这个文件<code>python3 debug.py</code>就可以启动爬虫。</p><h2 id="动态调试"><a href="#动态调试" class="headerlink" title="动态调试"></a>动态调试</h2><p>在IDE下选择启动debug：</p><p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/debug_scrapy.png" alt=""></p><p>可以看到程序停在了断点处，可以很方便的查看程序运行时的堆栈和变量信息：</p><p><img src="https://hexo-1256263757.cos.ap-beijing.myqcloud.com/debug_scrapy2.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;一般启动方式&quot;&gt;&lt;a href=&quot;#一般启动方式&quot; class=&quot;headerlink&quot; title=&quot;一般启动方式&quot;&gt;&lt;/a&gt;一般启动方式&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
-      
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://jshpy.cn/categories/%E7%88%AC%E8%99%AB/"/>
-    
-    
-      <category term="Scrapy" scheme="http://jshpy.cn/tags/Scrapy/"/>
-    
-      <category term="Python3" scheme="http://jshpy.cn/tags/Python3/"/>
+      <category term="证书" scheme="http://blog.jshpy.cn/tags/%E8%AF%81%E4%B9%A6/"/>
     
   </entry>
   

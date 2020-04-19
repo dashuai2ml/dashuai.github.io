@@ -339,33 +339,28 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/分享/用Python搭建简单的HTTP服务.html" >
+        <a class="abstract-title" href = "/爬虫/scrapy实用技巧.html" >
             
-                <span>用Python搭建简单的HTTP服务</span>
+                <span>Scrapy实用技巧</span>
         </a>
         <div class="abstract-content">
-            分享一个快速用Python搭建简单的HTTP服务的方法。
-平时我们可能有需要，传输某个文件到手机，或者工作中某台服务器的电脑。
-假如这个手机是个测试手机/服务器，并没有微信QQ之类的软件，而且你也不想费时去安装及登陆账号，而这个这个时候恰好你的电脑有Python环境，事情一下就简单了许多：
-
-第一步 打开终端窗口，cd至你想要传输文件的目录。
-第二步 Python3环境，输入python -m http.server 8080；Python2环境，输入python -m SimpleHTTPServer 8080；
-
-看到如下字样说明服务开启成功：
-1Serving HTTP on 0....
+            在使用scrapy过程中总结了一些小技巧，在此分享出来供大家参考。
+用 LinkExtractor 收取链接以 http://www.hao123.com/sitemap 为例子：
+在shell中运行
+1scrapy shell http://www.hao123.com/sitemap
+进入shell调试模式，我们来看看使用linkextractors的效果
+1234567891011121314151617&gt;&gt;&gt; from scrapy.linkextractors import LinkExtractor&gt;&gt;&gt; links = LinkExtra...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/21</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/28</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "HTTP">HTTP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Scrapy">Scrapy</a>
     
 </div>
             
@@ -378,35 +373,38 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/分享/类图的相关概念.html" >
+        <a class="abstract-title" href = "/爬虫/scrapy启动多爬虫.html" >
             
-                <span>类图的相关概念</span>
+                <span>Scrapy实现动态调试和同时启动多个爬虫</span>
         </a>
         <div class="abstract-content">
-            学了好长时间Java才接触到类图的相关概念，其实我觉得大可在学Java之前就普及相关知识，最近看了相关的东西借此从结下自己的理解。
-我们可以把类图看作我们写程序之前准备的草稿或图纸，不要求我们详尽设计，只是构建出一个相对明晰的整体框架，帮助我们从宏观架构我们的项目。
-类图将类与类之间的关系氛围以下几种：
+            一般启动方式1scrapy crawl spider_name
+命令行启动好处是灵活方便, 可以通过传递参数的形式控制爬虫的行为和输出。
 
-实现
-泛化
-聚合
-组合
-关联
-依赖
+参见官方文档
 
-实现 泛化我觉得可以将它们放在一起来看，因为它们都体现出类的一种继承结构，也即 is-a 的关系，举个例子：自行车是车、猫是动物
-那么在实际的代码中实现表示继承抽象类，符号是一条带空心箭头的虚线，箭头方向表示继承自，继承自谁就指...
+比如你可以配置爬虫采集到数据的输出方式:1scrapy crawl dmoz -o items.json
+但是它的缺点也很明显:
+
+原子性太强，不方便动态调试代码
+当需要启动多个爬虫时，不方便操作
+
+新的思路我们知道Scrapy是基于Twisted实现的爬虫框架, 因此我们可以通过引入reactor来启动我们的爬虫。
+为了方便理解，我把的项目结构展示出来：
+123456789101112.├── learn_scrapy│   ├──...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/15</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "UML">UML</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Scrapy">Scrapy</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python3">Python3</a>
     
 </div>
             
@@ -485,40 +483,6 @@ matplotlib 是一个优秀的数据可视化库，可以很方便的使用Python
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/分享/内网穿透的通俗理解.html" >
-            
-                <span>内网穿透的通俗理解</span>
-        </a>
-        <div class="abstract-content">
-            内网穿透的通俗理解最近看了微信公众平台的授权相关内容，但是想要在本机调试的话需要做内网穿透的工作，通过查阅资料实现了相关功能，借此总结下自己对于内网穿透粗浅的理解。
-平日里我们访问的网站，背后都有服务器在支撑服务，而我们之所以能访问这台服务器是因为我们能在互联网中定位到他的IP地址。
-这个IP是运营商分配的公网IP地址，在网络中是独一无二的，但是这样的IP资源很宝贵，不能无节制的分配。
-但是很多机器都需要联网，怎么办？
-回想下家里联网的场景，路由器通过拨号向运营商申请到了一个公网IP地址（下一次拨号还会变化），家里所有联网设备都通过这个IP地址和互联网上的其他设备通信。
-与此同时路由器把...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "内网穿透">内网穿透</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/机器学习/Tensorflow简单认识.html" >
             
                 <span>Tensorflow简单认识</span>
@@ -544,42 +508,6 @@ matplotlib 是一个优秀的数据可视化库，可以很方便的使用Python
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Tensorflow">Tensorflow</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/分享/命令行式的MYSQL客户端.html" >
-            
-                <span>使用命令行式的MYSQL客户端</span>
-        </a>
-        <div class="abstract-content">
-            最近需要连接到某个数据库，但是由于防护墙限制只能从一个特定的主机上连接，而这个主机是无UI界面的Linux系统。
-那么有没有一款命令行式的MYSQL客户端呢？有的，我找到了mycli，它有直观的语法突出显示，你可以用它方便的操作自己的数据库。
-如果恰好有Python的环境，可以用以下指令轻松安装：
-1$ pip install mycli
-或者下载源码后:
-1$ python setup.py install
-其他的平台：
-12$ brew update &amp;&amp; brew install mycli  # macOS$ sudo apt-get install my...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "MYSQL">MYSQL</a>
     
 </div>
             
@@ -827,22 +755,6 @@ CA证书服务 -&gt; 购买证书
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 11
@@ -861,6 +773,26 @@ CA证书服务 -&gt; 购买证书
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/分享/用Python搭建简单的HTTP服务.html" >用Python搭建简单的HTTP服务</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/分享/类图的相关概念.html" >类图的相关概念</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/分享/内网穿透的通俗理解.html" >内网穿透的通俗理解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href= "/分享/命令行式的MYSQL客户端.html" >使用命令行式的MYSQL客户端</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/Java/用Maven导入本地的jar包.html" >用Maven导入本地的jar包</a>
         </li>
     
@@ -875,12 +807,12 @@ CA证书服务 -&gt; 购买证书
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/分享/用Python搭建简单的HTTP服务.html" >用Python搭建简单的HTTP服务</a>
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/爬虫/scrapy实用技巧.html" >Scrapy实用技巧</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/分享/类图的相关概念.html" >类图的相关概念</a>
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/爬虫/scrapy启动多爬虫.html" >Scrapy实现动态调试和同时启动多个爬虫</a>
         </li>
     
     
@@ -895,17 +827,7 @@ CA证书服务 -&gt; 购买证书
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/分享/内网穿透的通俗理解.html" >内网穿透的通俗理解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">04/20</span><a class="archive-post-title" href= "/机器学习/Tensorflow简单认识.html" >Tensorflow简单认识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href= "/分享/命令行式的MYSQL客户端.html" >使用命令行式的MYSQL客户端</a>
         </li>
     
     
@@ -913,35 +835,16 @@ CA证书服务 -&gt; 购买证书
             <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/运维/HTTPS 环境搭建.html" >HTTPS 环境搭建</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2017 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/爬虫/scrapy实用技巧.html" >Scrapy实用技巧</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/爬虫/scrapy启动多爬虫.html" >Scrapy实现动态调试和同时启动多个爬虫</a>
-        </li>
-    
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Spring Boot"><span class="iconfont-archer">&#xe606;</span>Spring Boot</span>
-    
         <span class="sidebar-tag-name" data-tags="HTTPS"><span class="iconfont-archer">&#xe606;</span>HTTPS</span>
     
         <span class="sidebar-tag-name" data-tags="证书"><span class="iconfont-archer">&#xe606;</span>证书</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spring Boot"><span class="iconfont-archer">&#xe606;</span>Spring Boot</span>
     
         <span class="sidebar-tag-name" data-tags="Tensorflow"><span class="iconfont-archer">&#xe606;</span>Tensorflow</span>
     
@@ -951,13 +854,13 @@ CA证书服务 -&gt; 购买证书
     
         <span class="sidebar-tag-name" data-tags="Python3"><span class="iconfont-archer">&#xe606;</span>Python3</span>
     
-        <span class="sidebar-tag-name" data-tags="内网穿透"><span class="iconfont-archer">&#xe606;</span>内网穿透</span>
-    
         <span class="sidebar-tag-name" data-tags="MYSQL"><span class="iconfont-archer">&#xe606;</span>MYSQL</span>
     
-        <span class="sidebar-tag-name" data-tags="Maven"><span class="iconfont-archer">&#xe606;</span>Maven</span>
+        <span class="sidebar-tag-name" data-tags="内网穿透"><span class="iconfont-archer">&#xe606;</span>内网穿透</span>
     
         <span class="sidebar-tag-name" data-tags="UML"><span class="iconfont-archer">&#xe606;</span>UML</span>
+    
+        <span class="sidebar-tag-name" data-tags="Maven"><span class="iconfont-archer">&#xe606;</span>Maven</span>
     
         <span class="sidebar-tag-name" data-tags="HTTP"><span class="iconfont-archer">&#xe606;</span>HTTP</span>
     
@@ -996,9 +899,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Spring"><span class="iconfont-archer">&#xe60a;</span>Spring</span>
-    
         <span class="sidebar-category-name" data-categories="运维"><span class="iconfont-archer">&#xe60a;</span>运维</span>
+    
+        <span class="sidebar-category-name" data-categories="Spring"><span class="iconfont-archer">&#xe60a;</span>Spring</span>
     
         <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
     
