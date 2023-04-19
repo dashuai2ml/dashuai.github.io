@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import {useMarkdown} from '@/func/marked'
+import MDContainers from '../components/MDContainers.vue'
+
 </script>
 
 <template>
   <main>
-    <div v-html="useMarkdown('![pic](favicon.ico)')"></div>
+    <MDContainers :content="'![pic](favicon.ico)'"></MDContainers>
   </main>
 </template>
