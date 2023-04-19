@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import {useMarkdown} from '@/func/marked'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <div v-html="useMarkdown('![pic](favicon.ico)')"></div>
   </main>
 </template>
