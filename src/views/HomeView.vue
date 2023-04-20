@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import MDContainers from '../components/MDContainers.vue'
+import MDArticleTemplate from '../components/MDArticleTemplate.vue'
+
 
 </script>
 
 <template>
   <main>
-    <MDContainers :content="'![pic](favicon.ico)'"></MDContainers>
+    <Suspense>
+      <!-- 主要内容 -->
+      <MDArticleTemplate file-path="src/assets/article/test.md"></MDArticleTemplate>
+
+      <!-- 加载中状态 -->
+      <template #fallback>
+        正在加载...
+      </template>
+    </Suspense>
   </main>
 </template>
