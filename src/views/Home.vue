@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Avatar from '@/components/Avatar.vue'
+import Introduction from '@/components/Introduction.vue'
 
 </script>
 
@@ -7,37 +9,43 @@
     <div id="bg">
       <div class="bg-svg bg-svg-left"></div>
       <div class="bg-svg bg-svg-right"></div>
+      <img id="dashuai-name" src="../assets/svg/bgsvg-name.svg" alt="" srcset="">
     </div>
     <div id="content">
-      <img id="dashuai-name" src="../assets/svg/bgsvg-name.svg" alt="" srcset="">
+      <Avatar></Avatar>
+      <Introduction></Introduction>
     </div>
   </main>
 </template>
 
 <style scoped>
 #content {
-  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid blue; */
   max-width: 1280px;
   height: 2000px;
+  padding-top: 55px;
   margin: 0 auto;
+}
+
+#dashuai-name {
+  display: block;
+  top: 300px;
+  margin: 0 auto;
+  width: 50%;
+  min-width: 320px;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 main #bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: var(--zx-mise);
-}
-
-#dashuai-name {
-  display: block;
-  top: 100px;
-  margin: 0 auto;
-  width: 50%;
-  min-width: 320px;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 /* width >= 900px */
