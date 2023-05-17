@@ -32,10 +32,12 @@ import Introduction from '@/components/Introduction.vue'
 
 #dashuai-name {
   display: block;
-  top: 300px;
+  top: 170px;
   margin: 0 auto;
-  width: 50%;
+  width: 500px;
   min-width: 320px;
+  transform: scale(.3);
+  transform-origin: center;
   user-select: none;
   -webkit-user-drag: none;
 }
