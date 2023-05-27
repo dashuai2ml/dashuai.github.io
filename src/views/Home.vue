@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Avatar from '@/components/Avatar.vue'
 import Introduction from '@/components/Introduction.vue'
+import Hobbies from '@/components/Hobbies.vue'
 
 </script>
 
@@ -11,22 +12,22 @@ import Introduction from '@/components/Introduction.vue'
       <div class="bg-svg bg-svg-right"></div>
       <img id="dashuai-name" src="../assets/svg/bgsvg-name.svg" alt="" srcset="">
     </div>
-    <div id="content">
+    <div class="content">
       <Avatar></Avatar>
       <Introduction></Introduction>
+      <Hobbies></Hobbies>
     </div>
   </main>
 </template>
 
 <style scoped>
-#content {
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid blue; */
   max-width: 1280px;
-  height: 2000px;
   padding-top: 55px;
+  padding-bottom: 50px;
   margin: 0 auto;
 }
 
@@ -46,7 +47,6 @@ main #bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  /* border: 1px solid red; */
   background-color: var(--zx-mise);
 }
 

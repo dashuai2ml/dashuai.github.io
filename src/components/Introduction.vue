@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div class="content">
     <div class="text">
       <span>
         <img id="hi" src="@/assets/png/WavingHand.png" alt="" srcset="">
@@ -21,16 +21,16 @@
   </div>
 </template>
 <style scoped>
-#content {
+.content {
   display: flex;
   position: relative;
   top: 50px;
   flex-direction: column;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 20px;
 }
 
-#content div:nth-child(2)>p {
+.content div:nth-child(2)>p {
   position: relative;
   left: 10px;
   margin-top: 10px;
@@ -39,17 +39,19 @@
 .text {
   display: flex;
   flex-direction: row;
+  max-width: 700px;
 }
 
 .text span:nth-child(1) {
   display: inline-block;
   position: relative;
-  top: 8px;
+  top: 15px;
   width: 80px;
 }
 
 #hi {
   position: relative;
   left: -8px;
+  top: -10px;
 }
 </style>
