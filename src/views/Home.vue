@@ -2,6 +2,7 @@
 import Avatar from '@/components/Avatar.vue'
 import Introduction from '@/components/Introduction.vue'
 import Hobbies from '@/components/Hobbies.vue'
+import Title from '@/components/Title.vue'
 
 </script>
 
@@ -16,6 +17,7 @@ import Hobbies from '@/components/Hobbies.vue'
       <Avatar></Avatar>
       <Introduction></Introduction>
       <Hobbies></Hobbies>
+      <Title title="个人项目 - Personal Projects"></Title>
     </div>
   </main>
 </template>
@@ -48,6 +50,7 @@ main #bg {
   width: 100%;
   height: 100%;
   background-color: var(--zx-mise);
+  overflow: hidden;
 }
 
 /* width >= 900px */
