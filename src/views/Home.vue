@@ -36,10 +36,10 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   padding-top: 55px;
   /* padding-bottom: 50px; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 #dashuai-name {
