@@ -14,14 +14,14 @@ function updateDialog(value:number) {
       <img @mouseover="updateDialog(1)" @mouseleave="updateDialog(0)" src="@/assets/png/dinosaur0.png" alt="" srcset="">
     </div>
     <div class="grid-wrapper">
-      <img src="@/assets/png/hobbies (1).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (2).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (3).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (4).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (5).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (6).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (7).png" alt="" srcset="">
-      <img src="@/assets/png/hobbies (8).png" alt="" srcset="">
+      <img src="@/assets/png/hobbies1.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies2.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies3.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies4.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies5.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies6.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies7.png" alt="" srcset="">
+      <img src="@/assets/png/hobbies8.png" alt="" srcset="">
     </div>
   </div>
 </template>
