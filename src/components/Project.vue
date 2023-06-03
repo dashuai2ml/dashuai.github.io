@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div id="parent" class="relative">
+  <div id="parent" class="relative inline-block drop-shadow-lg mb-5 sm:mb-0">
     <div :style="{ backgroundColor: props.bgColor }" id="back"
       class="p-10 rounded-md w-[300px] h-[350px] flex flex-col items-center justify-center">
       <p class=" text-sm mb-3">
@@ -24,7 +24,10 @@ const props = defineProps({
     </div>
     <div :style="{ backgroundColor: props.bgColor }" id="front"
       class=" rounded-md w-[300px] h-[350px] flex flex-col items-center justify-center">
-      <h2 class=" mb-5 text-base font-medium">Electronic Parts Spider</h2>
+      <h2 class=" mb-5 text-base font-medium">
+        <slot name="title">
+        </slot>
+      </h2>
       <slot name="img">
       </slot>
     </div>
@@ -34,14 +37,14 @@ const props = defineProps({
 <style scoped>
 #front {
   backface-visibility: hidden;
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out .4s;
 }
 
 #back {
   transform: rotateY(180deg);
   position: absolute;
   top: 0px;
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out .4s;
 }
 
 #parent:hover #back {

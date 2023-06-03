@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <h2 class="text-orange-800 text-xl font-bold flex items-center my-16 pb-2 pr-3 border-solid border-gray-300 border-b">
+  <h2 class="text-orange-800 text-xl font-bold flex items-center sm:my-16 my-8 pb-2 pr-3 border-solid border-gray-300 border-b">
       <span class="inline-block text-xl mx-3">
         <slot>
           <svg width="20" height="24" viewBox="0 0 20 24" fill="none"

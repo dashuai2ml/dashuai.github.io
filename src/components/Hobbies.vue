@@ -8,7 +8,7 @@ function updateDialog(value:number) {
 </script>
 
 <template>
-  <div id="hobbies">
+  <div id="hobbies" class=" pt-5 sm:pt-0">
     <div class="text-center">
       <img :style="{opacity:displayDialog}" id="dialog" src="@/assets/png/dialog.png" alt="" srcset="">
       <img @mouseover="updateDialog(1)" @mouseleave="updateDialog(0)" src="@/assets/png/dinosaur0.png" alt="" srcset="">

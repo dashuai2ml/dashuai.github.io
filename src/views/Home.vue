@@ -3,7 +3,10 @@ import Avatar from '@/components/Avatar.vue'
 import Introduction from '@/components/Introduction.vue'
 import Hobbies from '@/components/Hobbies.vue'
 import Title from '@/components/Title.vue'
-import Project from '@/components/Project.vue'
+import Slideshow from '@/components/Slideshow.vue'
+import ArticleList from '@/components/ArticleList.vue'
+import Contact from '@/components/Contact.vue'
+import Footer from '@/components/Footer.vue'
 
 </script>
 
@@ -19,22 +22,11 @@ import Project from '@/components/Project.vue'
       <Introduction></Introduction>
       <Hobbies></Hobbies>
       <Title title="个人项目 - Personal Projects"></Title>
-      <Project :bg-color="'#CCECB4'" :link="'https://github.com/dashuai2ml/electronic-parts-spider'">
-        <template #p1>
-          <span>
-            这个项目是一个基于TypeScript的爬虫程序，旨在抓取目标网站上的元器件详细信息。采取了一定措施来解决反爬虫的问题。
-          </span>
-        </template>
-        <template #p2>
-          <span>
-            在数据抓取之后，进行了适当的清洗和过滤，确保数据的准确性和可用性。最终，将数据存储到了数据库中，以备后续使用。
-          </span>
-        </template>
-        <template #img>
-          <img src="@/assets/png/Spider.png" alt="">
-        </template>
-      </Project>
+      <Slideshow></Slideshow>
       <Title title="近期文章 - Recent Articles"><img src="@/assets/png/rocket.png" alt=""></Title>
+      <ArticleList></ArticleList>
+      <Contact></Contact>
+      <Footer></Footer>
     </div>
   </main>
 </template>
@@ -46,7 +38,7 @@ import Project from '@/components/Project.vue'
   align-items: center;
   max-width: 1280px;
   padding-top: 55px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
   margin: 0 auto;
 }
 
