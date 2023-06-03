@@ -73,13 +73,14 @@ main #bg {
     position: absolute;
     width: 210px;
     top: 100px;
+    left: 20px;
   }
 
   .bg-svg-right {
     background-image: url(../assets/svg/bgsvg-right.svg);
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 20px;
     width: 230px;
   }
 }
