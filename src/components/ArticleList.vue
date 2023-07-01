@@ -2,8 +2,8 @@
 <template>
   <div class="flex flex-col items-center">
     <div class="flex flex-col rounded-md mb-3 justify-center sm:p-10 p-5 sm:w-[700px] w-[300px] sm:h-[100px] bg-white hover:drop-shadow-md transition-all duration-300">
-      <a href="https://dashuai2ml.notion.site/ChatGPT-Text2Img-AI-ef0f1a8f39c946008a1c98ecb3386995" target="_blank"><p class=" font-bold">以 ChatGPT 和 Text2Img 为代表的 AI 大模型能否引起一次生产力革命？</p></a>
-      <p class="text-gray-500">通过分析它们在自然语言生成和图像生成方面的创新功能，文章讨论了它们如何为自动化任务、内容生成和创造性领域带来巨大潜力。</p>
+      <a href="https://dashuai2ml.notion.site/ChatGPT-Text2Img-AI-ef0f1a8f39c946008a1c98ecb3386995" target="_blank"><p class=" font-bold">以 ChatGPT 为代表的 AI 大模型能否引起一次生产力革命？</p></a>
+      <p class="text-gray-500">通过分析 ChatGPT 在自然语言生成方面的创新功能，文章讨论了其在自动化任务、内容生成和创造性领域带来巨大潜力。</p>
     </div>
     <div class="flex flex-col rounded-md mb-3 justify-center sm:p-10 p-5 sm:w-[700px] w-[300px] sm:h-[100px] bg-white hover:drop-shadow-md transition-all duration-300">
       <a href="https://dashuai2ml.notion.site/Tailwind-CSS-bbf1bbc01ec24b0fb654087756bccbd1" target="_blank"><p class=" font-bold">对 Tailwind CSS 的改观</p></a>
