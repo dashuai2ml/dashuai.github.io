@@ -10,7 +10,7 @@ yarn build
 cd dist
 
 # if you are deploying to a custom domain
-echo 'dashuai.life' > CNAME
+echo 'dashuaicn.top' > CNAME
 
 git init
 git add -A
