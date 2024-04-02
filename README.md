@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Web%20Framework-Vue-brightgreen)
 
-本项目使用Vue实现，利用deploy.sh脚本将build后的页面提交到gh-pages分支，结合GitHub提供的Pages展示功能完成网站部署，同时引入```Cloudflare```和域名[dashuai.life](https://dashuai.life)实现全球CDN分发和HTTPS访问。
+本项目使用Vue实现，利用deploy.sh脚本将build后的页面提交到gh-pages分支，结合GitHub提供的Pages展示功能完成网站部署，同时引入```Cloudflare```和域名[dashuaicn.top](https://dashuaicn.top)实现全球CDN分发和HTTPS访问。
 
 ## 技术架构
 
