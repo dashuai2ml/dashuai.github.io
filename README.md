@@ -10,7 +10,7 @@
 - 部署工具：deploy.sh脚本
 - 页面展示：GitHub Pages
 - CDN服务：Cloudflare
-- 域名：[dashuai.life](https://dashuai.life)
+- 域名：[dashuaicn.top](https://dashuaicn.top)
 
 ## 技术特点
 
